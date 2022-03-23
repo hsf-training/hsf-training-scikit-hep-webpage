@@ -46,8 +46,8 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/masonproffitt/uproot-tutorial>,
-    which can be viewed at <https://masonproffitt.github.io/uproot-tutorial>.
+    please work in <https://github.com/hsf-training/hsf-training-scikit-hep-webpage>,
+    which can be viewed at <https://hsf-training.github.io/hsf-training-scikit-hep-webpage/>.
 
 2.  If you wish to change the example lesson,
     please work in <https://github.com/carpentries/lesson-example>,
