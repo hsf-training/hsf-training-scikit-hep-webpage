@@ -10,7 +10,7 @@
 carpentry: "hsf"
 
 # Overall title for pages.
-title: "Uproot Tutorial"
+title: "Scikit-HEP Tutorial"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
