@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage.svg?branch=gh-pages)](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage)
+[![Build Status](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage.svg?branch=main)](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage)
 
 # Scikit-HEP tutorial
 

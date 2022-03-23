@@ -1,7 +1,7 @@
 name: Test template
 on:
   push:
-    branches: gh-pages
+    branches: main
   pull_request:
 jobs:
   check-template:
@@ -67,7 +67,7 @@ jobs:
           if [[ -n "${{ github.event.pull_request.number }}" ]]; then
             echo "::set-output name=ref::refs/pull/${{ github.event.pull_request.number }}/head"
           else
-            echo "::set-output name=ref::gh-pages"
+            echo "::set-output name=ref::main"
           fi
 
       - name: Sync lesson with carpentries/styles

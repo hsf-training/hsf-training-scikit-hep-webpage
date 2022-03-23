@@ -6,7 +6,7 @@ rvm:
 
 branches:
   only:
-  - gh-pages
+  - main
   - /.*/
 
 cache:
