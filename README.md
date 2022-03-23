@@ -1,13 +1,13 @@
-[![Build Status](https://travis-ci.org/hsf-training/hsf-training-uproot-webpage.svg?branch=gh-pages)](https://travis-ci.org/hsf-training/hsf-training-uproot-webpage)
+[![Build Status](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage.svg?branch=gh-pages)](https://travis-ci.org/hsf-training/hsf-training-scikit-hep-webpage)
 
-# Uproot tutorial
+# Scikit-HEP tutorial
 
-This is a tutorial on [Uproot](https://github.com/scikit-hep/uproot), a package for reading and writing ROOT files for columnar analysis.
-It was written by [Mason Proffitt][mason] using the [Software Carpentry's][carpentries] lesson template and first taught during the [Software Carpentry Workshop at CERN](https://indico.cern.ch/event/834411/) on November 29, 2019.
+This is a tutorial on [Scikit-HEP](https://scikit-hep.org), a collection of packages for particle physics analysis in Python.
+It was written by [Jim Pivarski][jpivarski] using the [Software Carpentry's][carpentries] lesson template and first taught during a [Software Carpentry Workshop](https://indico.cern.ch/event/1097111/timetable/#day-2021-12-15) on December 15, 2021.
 
-This repository builds a webpage that is live [here](https://hsf-training.github.io/hsf-training-uproot-webpage/)!
+This repository builds a webpage that is live [here](https://hsf-training.github.io/hsf-training-scikit-hep-webpage/)!
 
-The Uproot tutorial is part of the [HSF training curriculum](https://hepsoftwarefoundation.org/training/curriculum).
+The Scikit-HEP tutorial is part of the [HSF training curriculum](https://hepsoftwarefoundation.org/training/curriculum).
 
 ## Contributing
 
@@ -20,7 +20,7 @@ how to write new episodes.
 
 ## Maintainer(s)
 
-* [Mason Proffitt][mason]
+* [Jim Pivarski][jpivarski]
 
 ## Authors
 
@@ -31,5 +31,5 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 To cite this lesson, please consult with [CITATION](CITATION)
 
 [lesson-example]: https://carpentries.github.io/lesson-example
-[mason]: https://github.com/masonproffitt/
+[jpivarski]: https://github.com/jpivarski/
 [carpentries]: https://software-carpentry.org/
