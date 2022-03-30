@@ -9,7 +9,7 @@ This tutorial uses a sampler of [Scikit-HEP project](https://scikit-hep.org/) pa
 Rather than asking you to install them all, just use this
 
 <p align="center">
-  <a href="https://mybinder.org/v2/gh/hsf-training/hsf-training-scikit-hep-webpage/binder?urlpath=lab" target="_blank">
+  <a href="https://mybinder.org/v2/gh/hsf-training/hsf-training-scikit-hep-webpage/main?urlpath=lab" target="_blank">
     <img src="https://mybinder.org/badge_logo.svg" alt="Launch Binder" width="200">
   </a>
 </p>
