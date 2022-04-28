@@ -18,7 +18,7 @@ keypoints:
 
 ## Basic Python
 
-Most students start this module after a Python introduction or are already familiar with the *basics* of Python. For instance, you should be comfortable with the Python essentials such as assinging variables,
+Most students start this module after a Python introduction or are already familiar with the *basics* of Python. For instance, you should be comfortable with the Python essentials such as assigning variables,
 
 ~~~
 x = 5
