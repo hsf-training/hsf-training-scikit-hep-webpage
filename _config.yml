@@ -100,4 +100,4 @@ exclude:
 # Turn on built-in syntax highlighting.
 highlighter: rouge
 
-remote_theme: stephenswat/hsf-training-theme
+remote_theme: hsf-training/hsf-training-theme
