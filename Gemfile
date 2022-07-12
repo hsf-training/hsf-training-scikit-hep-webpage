@@ -11,3 +11,5 @@ gem 'github-pages', group: :jekyll_plugins
 
 gem 'rake'
 gem 'hsf-training-theme', git: "https://github.com/stephenswat/hsf-training-theme.git", branch: 'main'
+
+ gem "webrick", "~> 1.7"
