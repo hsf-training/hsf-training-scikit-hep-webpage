@@ -260,7 +260,7 @@ In array expressions (unfortunately!), we have to use Python's bitwise operators
 ~~~
 x = 0
 
-x > -10 & x < 10
+x > -10 & x < 10  # probably not what you expect!
 
 (x > -10) & (x < 10)
 ~~~
