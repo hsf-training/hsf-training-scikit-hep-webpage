@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the following works when using this software."
 type: software
 title: "Scikit-HEP Tutorial"
-abstract: "FIXME"
+abstract: "Tutorial for Scikit-HEP: A collection of packages for particle physics analyses in Python."
 authors:
 - family-names: "Pivarski"
   given-names: "Jim"
