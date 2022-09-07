@@ -21,7 +21,7 @@ to get a JupyterLab session with everything included. Once JupyterLab opens, cli
 If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). After setting that up, Uproot (for instance) could be installed as
 
 ~~~
-conda install uproot awkward   # ... others?
+conda install numpy uproot4 awkward hist particle hepunits matplotlib boost-histogram iminuit zfit vector fastjet
 ~~~
 {: .language-bash}
 
@@ -29,6 +29,7 @@ If one of the above-mentioned packages is not available on conda-forge (yet), it
 
 ~~~
 pip install numpy
+pip install awkward
 pip install uproot4
 pip install scikit-hep-testdata
 pip install hist
