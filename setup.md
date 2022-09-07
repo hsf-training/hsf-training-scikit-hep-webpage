@@ -18,20 +18,14 @@ to get a JupyterLab session with everything included. Once JupyterLab opens, cli
 
 # After the tutorial
 
-If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). After setting that up, Uproot (for instance) could be installed as
+If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the environment.yml file in base of this repository as:
 
-~~~
-conda install uproot awkward   # ... others?
-~~~
-{: .language-bash}
 
-If one of the above-mentioned packages is not available on conda-forge (yet), it can be installed in the same environment using pip:
+```bash
+conda env create --file environment.yml
+```
 
-~~~
-pip install fastjet
-~~~
-{: .language-bash}
+Alternatively, you can install all required packages locally with pip: Take a look at environment.yml for a list (this includes all dependencies listed under the pip key and some of the dependencies listed above).
 
-Alternatively, you could install everything using pip only. This is the default way to install Python packages, and there are many tutorials, including [Python's own](https://packaging.python.org/en/latest/tutorials/installing-packages/).
 
 {% include links.md %}
