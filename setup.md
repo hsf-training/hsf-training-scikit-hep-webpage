@@ -28,6 +28,17 @@ conda install uproot awkward   # ... others?
 If one of the above-mentioned packages is not available on conda-forge (yet), it can be installed in the same environment using pip:
 
 ~~~
+pip install numpy
+pip install uproot4
+pip install scikit-hep-testdata
+pip install hist
+pip install particle
+pip install hepunits
+pip install matplotlib
+pip install boost-histogram
+pip install iminuit
+pip install zfit
+pip install vector
 pip install fastjet
 ~~~
 {: .language-bash}
