@@ -101,6 +101,8 @@ particle.Particle.findall(lambda p: p.pdgid.is_meson and p.pdgid.has_strange and
 
 # Jet clustering
 
+In a high-energy pp collision, for instance, a spray of hadrons is produced which is clustered into `jets' of particles and this method/process is called jet-clustering.  The anti-kt jet clustering algorithm is one such algorithm used to combine particles/hadrons that are close to each other into jets. 
+
 Some people need to do jet-clustering at the analysis level. The fastjet package makes it possible to do that an (Awkward) array at a time.
 
 ~~~
