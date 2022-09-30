@@ -4,6 +4,8 @@
 
 This is a tutorial on [Scikit-HEP](https://scikit-hep.org), a collection of packages for particle physics analysis in Python.
 
+![scikit hep ecosystem](fig/scikit-hep-logos.png)
+
 It was written by [Jim Pivarski][jpivarski] using the [Software Carpentry's][carpentries] lesson template and first taught during a [Software Carpentry Workshop](https://indico.cern.ch/event/1097111/timetable/#day-2021-12-15) on December 15, 2021.
 
 This repository builds a webpage that is live [here](https://hsf-training.github.io/hsf-training-scikit-hep-webpage/)!
