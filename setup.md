@@ -6,11 +6,19 @@ title: Setup
 
 This tutorial uses a sampler of [Scikit-HEP project](https://scikit-hep.org/) packages (Uproot, Awkward Array, hist, Vector, zfit, Particle, fastjet), which are all components that you might or might not use in your analysis, as well as Python 3, NumPy, and a smattering of other mainstream libraries (Pandas, Matplotlib, JupyterLab, Numba).
 
-Rather than asking you to install them all, just use this
+Rather than asking you to install them all, just use one of these buttons
+
+<p align="center">
+  <a href="https://codespaces.new/wdconinc/hsf-training-scikit-hep-webpage?quickstart=1" target="_blank">
+    <img src="https://github.com/codespaces/badge.svg" alt="Launch GitHub Codespaces">
+  </a>
+</p>
+
+or
 
 <p align="center">
   <a href="https://mybinder.org/v2/gh/hsf-training/hsf-training-scikit-hep-webpage/main?urlpath=lab" target="_blank">
-    <img src="https://mybinder.org/badge_logo.svg" alt="Launch Binder" width="200">
+    <img src="https://mybinder.org/badge_logo.svg" alt="Launch Binder">
   </a>
 </p>
 
