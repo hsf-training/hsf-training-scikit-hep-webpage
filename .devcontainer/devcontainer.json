@@ -1,19 +1,15 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-  "features": {
-      "ghcr.io/rocker-org/devcontainer-features/miniforge:1": {}
-  },
   "hostRequirements": {
     "cpus": 2
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": {
-    "Installing python packages": "python3 -m pip install -r requirements.txt",
-    "Installing xrootd client": "sudo apt-get -yqq update && sudo apt-get install -yqq python3-xrootd"
+    "Installing apt packages": "sudo apt-get -yqq update && sudo apt-get install -yqq python3-pip python3-xrootd"
   },
-  "postCreateCommand": [
-    "python3 -m pip install -r requirements.txt"
-  ],
+  "postCreateCommand": {
+    "Installing python packages": "python3 -m pip install -r requirements.txt"
+  },
   "customizations": {
     "codespaces": {
       "openFiles": []
