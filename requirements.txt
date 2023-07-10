@@ -1,8 +1,16 @@
-awkward==1.8.0
-fastjet==3.3.4.0rc9
-nlopt==2.7.0   # https://github.com/zfit/zfit/issues/387
-particle==0.20.0
-scikit-hep-testdata==0.4.12
-uproot==4.2.2
-vector==0.8.5
-zfit==0.9.0a2
+awkward
+fastjet
+hist
+lz4
+matplotlib
+mplhep
+nlopt
+numba
+numpy
+pandas
+particle
+scikit-hep-testdata
+uproot
+vector
+zfit
+zstandard
