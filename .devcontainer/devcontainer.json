@@ -7,14 +7,13 @@
     "cpus": 2
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": [
-    "python3 -m pip install -r requirements.txt",
-    "sudo apt-get -yqq update && sudo apt-get install -yqq python3-xrootd"
+  "updateContentCommand": {
+    "Installing python packages": "python3 -m pip install -r requirements.txt",
+    "Installing xrootd client": "sudo apt-get -yqq update && sudo apt-get install -yqq python3-xrootd"
+  },
+  "postCreateCommand": [
+    "python3 -m pip install -r requirements.txt"
   ],
-  // "postCreateCommand": [
-  //   "python3 -m pip install -r requirements.txt",
-  //   "sudo apt-get -yqq update && sudo apt-get install -yqq python3-xrootd"
-  // ],
   "customizations": {
     "codespaces": {
       "openFiles": []
