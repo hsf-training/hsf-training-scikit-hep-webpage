@@ -1,5 +1,8 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+      "ghcr.io/rocker-org/devcontainer-features/miniforge:1": {}
+  },
   "hostRequirements": {
     "cpus": 2
   },
