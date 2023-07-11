@@ -6,7 +6,14 @@ title: Setup
 
 This tutorial uses a sampler of [Scikit-HEP project](https://scikit-hep.org/) packages (Uproot, Awkward Array, hist, Vector, zfit, Particle, fastjet), which are all components that you might or might not use in your analysis, as well as Python 3, NumPy, and a smattering of other mainstream libraries (Pandas, Matplotlib, JupyterLab, Numba).
 
-Rather than asking you to install them all, just use one of these buttons
+Rather than asking you to install them all, we provide two different ways to run everything in your browser: GitHub Codespaces and Binder.
+We recommend that you use GitHub Codespaces (see instructions below). If this is not an option for you, you can use Binder, though be aware that the resources might be very limited.
+
+## GitHub codespaces
+
+In order to use GitHub codespaces, you need to create an account with [GitHub](github.com/) (it's free! You can also enter their education program for additional free stuff).
+
+Click the following button (a new page will open), then return to these instructions:
 
 <p align="center">
   <a href="https://codespaces.new/wdconinc/hsf-training-scikit-hep-webpage?quickstart=1" target="_blank">
@@ -14,7 +21,35 @@ Rather than asking you to install them all, just use one of these buttons
   </a>
 </p>
 
-or
+After starting the github codespace, take a look at the lines in the "Terminal" tab below. It might take a while until the environment is fully set up. If you see lines like this:
+
+```
+Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
+✔ Finishing up...
+✔ Running updateContentCommand...
+⠦ Running postCreateCommand...
+  › python3 -m pip install -r requirements.txt
+```
+
+the installation is still progressing.
+
+Once you're done, you should only see an empty prompt like this:
+
+```
+@klieret ➜ /workspaces/hsf-training-scikit-hep-webpage (main) $
+```
+
+Wait for a few seconds to see that nothing else runs.
+
+Now look at your left side-panel. You should see a file named `notebook.ipynb`. Click on it.
+A new tab opens.
+Try to execute the first line to see that everything is set up properly.
+
+You're ready to go 🎉
+
+## Binder
+
+Simply click the following button:
 
 <p align="center">
   <a href="https://mybinder.org/v2/gh/hsf-training/hsf-training-scikit-hep-webpage/main?urlpath=lab" target="_blank">
@@ -22,7 +57,6 @@ or
   </a>
 </p>
 
-to get a JupyterLab session with everything included. Once JupyterLab opens, click the "Python 3 (ipykernel)" button to get a new notebook.
 
 # After the tutorial
 
