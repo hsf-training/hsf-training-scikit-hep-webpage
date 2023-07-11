@@ -11,6 +11,10 @@ We recommend that you use GitHub Codespaces (see instructions below). If this is
 
 ## GitHub codespaces
 
+<p align="center">
+  <iframe width="427" height="251" src="https://www.youtube.com/embed/gcAuyqW4QRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
 In order to use GitHub codespaces, you need to create an account with [GitHub](github.com/) (it's free! You can also enter their education program for additional free stuff).
 
 Click the following button (a new page will open), then return to these instructions:
