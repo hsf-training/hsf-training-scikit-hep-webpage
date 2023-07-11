@@ -16,7 +16,7 @@ In order to use GitHub codespaces, you need to create an account with [GitHub](g
 Click the following button (a new page will open), then return to these instructions:
 
 <p align="center">
-  <a href="https://codespaces.new/wdconinc/hsf-training-scikit-hep-webpage?quickstart=1" target="_blank">
+  <a href="https://codespaces.new/hsf-training/hsf-training-scikit-hep-webpage?quickstart=1" target="_blank">
     <img src="https://github.com/codespaces/badge.svg" alt="Launch GitHub Codespaces">
   </a>
 </p>
