@@ -1,16 +1,11 @@
-awkward
 fastjet
-hist
 lz4
 matplotlib
-mplhep
 nlopt
 numba
 numpy
 pandas
-particle
+scikit-hep
 scikit-hep-testdata
-uproot
-vector
 zfit
 zstandard

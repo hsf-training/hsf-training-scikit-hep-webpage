@@ -2,17 +2,18 @@ name: software-carpentries-scikit-hep-tutorial
 channels:
   - conda-forge
 dependencies:
-  - hist==2.6.1
-  - lz4==3.1.10
-  - matplotlib==3.5.1
-  - mplhep==0.3.23
-  - numba==0.55.1
-  - numpy==1.21.5
-  - pandas==1.4.1
-  - python=3.9
-  - python-xxhash==3.0.0
-  - xrootd==5.4.1
-  - zstandard==0.17.0
-  - pip==22.0.4
+  - lz4
+  - matplotlib
+  - nlopt
+  - numba
+  - numpy
+  - pandas
+  - python
+  - python-xxhash
+  - scikit-hep
+  - scikit-hep-testdata
+  - xrootd
+  - zfit
+  - zstandard
   - pip:
-      - -r requirements.txt
+     - fastjet
