@@ -20,7 +20,7 @@ keypoints:
 The previous lesson included a tricky slice:
 
 ```python
-cut = (muons["nMuon"] == 2)
+cut = muons["nMuon"] == 2
 
 pt0 = muons["Muon_pt", cut, 0]
 ```
@@ -35,6 +35,7 @@ NumPy would not be able to perform such a slice, or even represent an array of v
 
 ```python
 import numpy as np
+
 np.array([[0.0, 1.1, 2.2], [], [3.3, 4.4], [5.5], [6.6, 7.7, 8.8, 9.9]])
 ```
 
@@ -42,6 +43,7 @@ Awkward Array is intended to fill this gap:
 
 ```python
 import awkward as ak
+
 ak.Array([[0.0, 1.1, 2.2], [], [3.3, 4.4], [5.5], [6.6, 7.7, 8.8, 9.9]])
 ```
 
@@ -86,7 +88,7 @@ array[ak.num(array) > 1, 1]
 Now consider this (similar to an example from the first lesson):
 
 ```python
-cut = (array * 10 % 2 == 0)
+cut = array * 10 % 2 == 0
 
 array[cut]
 ```
@@ -99,7 +101,10 @@ Returning to the big TTree from the previous lesson,
 
 ```python
 import uproot
-file = uproot.open("root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root")
+
+file = uproot.open(
+    "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root"
+)
 tree = file["Events"]
 
 muon_pt = tree["Muon_pt"].array(entry_stop=10)
@@ -108,7 +113,7 @@ muon_pt = tree["Muon_pt"].array(entry_stop=10)
 This jagged array of booleans selects all *muons* with at least 20 GeV:
 
 ```python
-particle_cut = (muon_pt > 20)
+particle_cut = muon_pt > 20
 
 muon_pt[particle_cut]
 ```
@@ -197,7 +202,7 @@ pairs
 
 lefts, rights = ak.unzip(pairs)
 
-lefts * rights   # they line up, so we can compute formulas
+lefts * rights  # they line up, so we can compute formulas
 ```
 
 ## Application to dimuons
@@ -211,17 +216,21 @@ In this example, we'll [ak.zip](https://awkward-array.readthedocs.io/en/latest/_
 ```python
 import uproot
 
-file = uproot.open("root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root")
+file = uproot.open(
+    "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root"
+)
 tree = file["Events"]
 
 arrays = tree.arrays(filter_name="/Muon_(pt|eta|phi|charge)/", entry_stop=10000)
 
-muons = ak.zip({
-    "pt": arrays["Muon_pt"],
-    "eta": arrays["Muon_eta"],
-    "phi": arrays["Muon_phi"],
-    "charge": arrays["Muon_charge"],
-})
+muons = ak.zip(
+    {
+        "pt": arrays["Muon_pt"],
+        "eta": arrays["Muon_eta"],
+        "phi": arrays["Muon_phi"],
+        "charge": arrays["Muon_charge"],
+    }
+)
 
 arrays.type
 muons.type
@@ -250,7 +259,9 @@ Since they do have the same lengths, we can use them in a formula.
 ```python
 import numpy as np
 
-mass = np.sqrt(2*mu1.pt*mu2.pt*(np.cosh(mu1.eta - mu2.eta) - np.cos(mu1.phi - mu2.phi)))
+mass = np.sqrt(
+    2 * mu1.pt * mu2.pt * (np.cosh(mu1.eta - mu2.eta) - np.cos(mu1.phi - mu2.phi))
+)
 ```
 
 **Quick quiz:** how many masses do we have in each event? How does this compare with `muons`, `mu1`, and `mu2`?
@@ -265,9 +276,7 @@ Supposing you just want to plot the numbers from the lists, you can use [ak.flat
 import hist
 
 hist.Hist(hist.axis.Regular(120, 0, 120, label="mass [GeV]")).fill(
-
     ak.ravel(mass)
-
 ).plot()
 ```
 

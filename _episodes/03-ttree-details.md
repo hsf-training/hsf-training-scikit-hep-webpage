@@ -36,7 +36,10 @@ As a data analyst, you'll likely be concerned with TTrees and TBranches first-ha
 
 ```python
 import uproot
-file = uproot.open("root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root")
+
+file = uproot.open(
+    "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root"
+)
 file.classnames()
 ```
 
@@ -79,7 +82,9 @@ These are the building blocks of a parallel data reader: each is responsible for
 Suppose you know that you will need all of the muon TBranches. Asking for them in one request is more efficient than asking for each TBranch individually because the server can be working on reading the later TBaskets from disk while the earlier TBaskets are being sent over the network to you. Whereas a TBranch has an `array` method, the TTree has an `arrays` (plural) method for getting multiple arrays.
 
 ```python
-muons = tree.arrays(["Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge"], entry_stop=1000)
+muons = tree.arrays(
+    ["Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge"], entry_stop=1000
+)
 muons
 ```
 
@@ -88,7 +93,7 @@ Now all five of these TBranches are in the output, `muons`, which is an Awkward 
 ```python
 muons["Muon_pt"]
 muons["Muon_eta"]
-muons["Muon_phi"]   # etc.
+muons["Muon_phi"]  # etc.
 ```
 
 > ## Beware! It's `tree.arrays` that actually reads the data!
@@ -120,16 +125,21 @@ The best way to figure out what you're doing is to tinker with small datasets, a
 
 ```python
 muons = tree.arrays(entry_stop=1000)
-cut = (muons["nMuon"] == 2)
+cut = muons["nMuon"] == 2
 
-pt0  = muons["Muon_pt",  cut, 0]; pt1  = muons["Muon_pt",  cut, 1]
-eta0 = muons["Muon_eta", cut, 0]; eta1 = muons["Muon_eta", cut, 1]
-phi0 = muons["Muon_phi", cut, 0]; phi1 = muons["Muon_phi", cut, 1]
+pt0 = muons["Muon_pt", cut, 0]
+pt1 = muons["Muon_pt", cut, 1]
+eta0 = muons["Muon_eta", cut, 0]
+eta1 = muons["Muon_eta", cut, 1]
+phi0 = muons["Muon_phi", cut, 0]
+phi1 = muons["Muon_phi", cut, 1]
 
 import numpy as np
-mass = np.sqrt(2*pt0*pt1*(np.cosh(eta0 - eta1) - np.cos(phi0 - phi1)))
+
+mass = np.sqrt(2 * pt0 * pt1 * (np.cosh(eta0 - eta1) - np.cos(phi0 - phi1)))
 
 import hist
+
 masshist = hist.Hist(hist.axis.Regular(120, 0, 120, label="mass [GeV]"))
 masshist.fill(mass)
 masshist.plot()
@@ -147,12 +157,15 @@ and accumulate data gradually with [uproot.TTree.iterate](https://uproot.readthe
 masshist = hist.Hist(hist.axis.Regular(120, 0, 120, label="mass [GeV]"))
 
 for muons in tree.iterate(filter_name=["nMuon", "/Muon_(pt|eta|phi)/"]):
-    cut = (muons["nMuon"] == 2)
-    pt0  = muons["Muon_pt",  cut, 0]; pt1  = muons["Muon_pt",  cut, 1]
-    eta0 = muons["Muon_eta", cut, 0]; eta1 = muons["Muon_eta", cut, 1]
-    phi0 = muons["Muon_phi", cut, 0]; phi1 = muons["Muon_phi", cut, 1]
+    cut = muons["nMuon"] == 2
+    pt0 = muons["Muon_pt", cut, 0]
+    pt1 = muons["Muon_pt", cut, 1]
+    eta0 = muons["Muon_eta", cut, 0]
+    eta1 = muons["Muon_eta", cut, 1]
+    phi0 = muons["Muon_phi", cut, 0]
+    phi1 = muons["Muon_phi", cut, 1]
 
-    mass = np.sqrt(2*pt0*pt1*(np.cosh(eta0 - eta1) - np.cos(phi0 - phi1)))
+    mass = np.sqrt(2 * pt0 * pt1 * (np.cosh(eta0 - eta1) - np.cos(phi0 - phi1)))
     masshist.fill(mass)
 
     print(masshist.sum() / tree.num_entries)

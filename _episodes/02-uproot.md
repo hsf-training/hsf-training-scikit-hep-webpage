@@ -34,9 +34,13 @@ To open a file for reading, pass the name of the file to [uproot.open](https://u
 
 ```python
 import skhep_testdata
-filename = skhep_testdata.data_path("uproot-Event.root")   # downloads this test file and gets a local path to it
+
+filename = skhep_testdata.data_path(
+    "uproot-Event.root"
+)  # downloads this test file and gets a local path to it
 
 import uproot
+
 file = uproot.open(filename)
 ```
 
@@ -76,7 +80,7 @@ Uproot histograms also satisfy the [UHI plotting protocol](https://uhi.readthedo
 ```python
 h.values()
 h.variances()
-h.axis("x").edges()   # "x", "y", "z" or 0, 1, 2
+h.axis("x").edges()  # "x", "y", "z" or 0, 1, 2
 ```
 
 ## Reading a TTree
@@ -151,7 +155,10 @@ output1["some_string"] = "This will be a TObjString."
 output1["some_histogram"] = file["hstat"]
 
 import numpy as np
-output1["nested_directory/another_histogram"] = np.histogram(np.random.normal(0, 1, 1000000))
+
+output1["nested_directory/another_histogram"] = np.histogram(
+    np.random.normal(0, 1, 1000000)
+)
 ```
 
 In ROOT, the name of an object is a property of the object, but in Uproot, it's a key in the TDirectory that holds the object, so that's why the name is on the left-hand side of the assignment, in square brackets. Only the data types listed in the blue box [in the documentation](https://uproot.readthedocs.io/en/latest/basic.html#writing-objects-to-a-file) are supported: mostly just histograms.
@@ -165,18 +172,31 @@ One way to do this is to assign the first batch and `extend` it with subsequent 
 ```python
 import numpy as np
 
-output1["tree1"] = {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
-output1["tree1"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
-output1["tree1"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
+output1["tree1"] = {
+    "x": np.random.randint(0, 10, 1000000),
+    "y": np.random.normal(0, 1, 1000000),
+}
+output1["tree1"].extend(
+    {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
+)
+output1["tree1"].extend(
+    {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
+)
 ```
 
 another is to create an empty TTree with [uproot.WritableDirectory.mktree](https://uproot.readthedocs.io/en/latest/uproot.writing.writable.WritableDirectory.html#mktree), so that every write is an extension.
 
 ```python
 output1.mktree("tree2", {"x": np.int32, "y": np.float64})
-output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
-output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
-output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
+output1["tree2"].extend(
+    {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
+)
+output1["tree2"].extend(
+    {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
+)
+output1["tree2"].extend(
+    {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
+)
 ```
 
 Performance tips are given in the next lesson, but in general, it pays to write few large batches, rather than many small batches.
