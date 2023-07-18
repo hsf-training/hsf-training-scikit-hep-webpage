@@ -2,8 +2,10 @@ name: software-carpentries-scikit-hep-tutorial
 channels:
   - conda-forge
 dependencies:
+  - jupyterlab
   - lz4
   - matplotlib
+  - nb_conda_kernels
   - nlopt
   - numba
   - numpy
