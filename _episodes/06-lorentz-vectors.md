@@ -67,7 +67,10 @@ tree = uproot.open(skhep_testdata.data_path("uproot-HZZ.root"))["events"]
 
 array = tree.arrays(filter_name=["Muon_E", "Muon_P[xyz]"])
 
-muons = ak.zip({"px": array.Muon_Px, "py": array.Muon_Py, "pz": array.Muon_Pz, "E": array.Muon_E}, with_name="Momentum4D")
+muons = ak.zip(
+    {"px": array.Muon_Px, "py": array.Muon_Py, "pz": array.Muon_Pz, "E": array.Muon_E},
+    with_name="Momentum4D",
+)
 mu1, mu2 = ak.unzip(ak.combinations(muons, 2))
 
 mu1 + mu2
@@ -92,7 +95,9 @@ z_boson.mass / GeV, z_boson.width / GeV
 
 particle.Particle.from_pdgid(111)
 
-particle.Particle.findall(lambda p: p.pdgid.is_meson and p.pdgid.has_strange and p.pdgid.has_charm)
+particle.Particle.findall(
+    lambda p: p.pdgid.is_meson and p.pdgid.has_strange and p.pdgid.has_charm
+)
 ```
 
 # Jet clustering
@@ -102,12 +107,18 @@ In a high-energy pp collision, for instance, a spray of hadrons is produced whic
 Some people need to do jet-clustering at the analysis level. The fastjet package makes it possible to do that an (Awkward) array at a time.
 
 ```python
-picodst = uproot.open("https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst")
-px, py, pz = ak.unzip(picodst.arrays(filter_name=["Track/Track.mPMomentum[XYZ]"], entry_stop=100))
+picodst = uproot.open(
+    "https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst"
+)
+px, py, pz = ak.unzip(
+    picodst.arrays(filter_name=["Track/Track.mPMomentum[XYZ]"], entry_stop=100)
+)
 
 probable_mass = particle.Particle.from_string("pi+").mass / GeV
 
-pseudojets = ak.zip({"px": px, "py": py, "pz": pz, "mass": probable_mass}, with_name="Momentum4D")
+pseudojets = ak.zip(
+    {"px": px, "py": py, "pz": pz, "mass": probable_mass}, with_name="Momentum4D"
+)
 good_pseudojets = pseudojets[pseudojets.pt > 0.1]
 
 import fastjet

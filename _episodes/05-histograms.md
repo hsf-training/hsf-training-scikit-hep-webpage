@@ -82,19 +82,19 @@ h[10:110].plot()
 but often you want to select bins by coordinate value
 
 ```python
-h[hist.loc(90):].plot()
+h[hist.loc(90) :].plot()
 ```
 
 or rebin by a factor,
 
 ```python
-h[::hist.rebin(2)].plot()
+h[:: hist.rebin(2)].plot()
 ```
 
 or sum over a range.
 
 ```python
-h[hist.loc(80):hist.loc(100):sum]
+h[hist.loc(80) : hist.loc(100) : sum]
 ```
 
 Things get more interesting when a histogram has multiple dimensions.
@@ -102,7 +102,9 @@ Things get more interesting when a histogram has multiple dimensions.
 ```python
 import awkward as ak
 
-picodst = uproot.open("https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst")
+picodst = uproot.open(
+    "https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst"
+)
 
 vertexhist = hist.Hist(
     hist.axis.Regular(600, -1, 1, label="x"),
@@ -119,9 +121,13 @@ vertexhist.fill(
 )
 
 vertexhist[:, :, sum].plot2d_full()
-vertexhist[hist.loc(-0.25):hist.loc(0.25), hist.loc(-0.25):hist.loc(0.25), sum].plot2d_full()
+vertexhist[
+    hist.loc(-0.25) : hist.loc(0.25), hist.loc(-0.25) : hist.loc(0.25), sum
+].plot2d_full()
 vertexhist[sum, sum, :].plot()
-vertexhist[hist.loc(-0.25):hist.loc(0.25):sum, hist.loc(-0.25):hist.loc(0.25):sum, :].plot()
+vertexhist[
+    hist.loc(-0.25) : hist.loc(0.25) : sum, hist.loc(-0.25) : hist.loc(0.25) : sum, :
+].plot()
 ```
 
 A histogram object can have more dimensions than you can reasonably visualize—you can slice, rebin, and project it into something visual later.
@@ -135,10 +141,17 @@ import iminuit.cost
 
 norm = len(h.axes[0].widths) / (h.axes[0].edges[-1] - h.axes[0].edges[0]) / h.sum()
 
-def f(x, background, mu, gamma):
-    return background + (1 - background) * gamma**2/((x - mu)**2 + gamma**2)/np.pi/gamma
 
-loss = iminuit.cost.LeastSquares(h.axes[0].centers, h.values() * norm, np.sqrt(h.variances()) * norm, f)
+def f(x, background, mu, gamma):
+    return (
+        background
+        + (1 - background) * gamma**2 / ((x - mu) ** 2 + gamma**2) / np.pi / gamma
+    )
+
+
+loss = iminuit.cost.LeastSquares(
+    h.axes[0].centers, h.values() * norm, np.sqrt(h.variances()) * norm, f
+)
 loss.mask = h.variances() > 0
 
 minimizer = iminuit.Minuit(loss, background=0, mu=91, gamma=4)
@@ -163,7 +176,9 @@ space = zfit.Space("mass", binning=binning)
 background = zfit.Parameter("background", 0)
 mu = zfit.Parameter("mu", 91)
 gamma = zfit.Parameter("gamma", 4)
-unbinned_model = zfit.pdf.SumPDF([zfit.pdf.Uniform(60, 120, space), zfit.pdf.Cauchy(mu, gamma, space)], [background])
+unbinned_model = zfit.pdf.SumPDF(
+    [zfit.pdf.Uniform(60, 120, space), zfit.pdf.Cauchy(mu, gamma, space)], [background]
+)
 
 model = zfit.pdf.BinnedFromUnbinnedPDF(unbinned_model, space)
 loss = zfit.loss.BinnedNLL(model, binned_data)

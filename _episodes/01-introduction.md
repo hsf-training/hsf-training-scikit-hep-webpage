@@ -37,13 +37,14 @@ and loops.
 
 ```python
 for i in range(x):
-     print(i)
+    print(i)
 ```
 
 Your data analysis will likely be full of statements like these, though the kinds of operations we'll be focusing on in this module have a form more like
 
 ```python
 import compiled_library
+
 compiled_library.do_computationally_expensive_thing(big_array)
 ```
 
@@ -68,6 +69,7 @@ and arrays
 
 ```python
 import numpy as np
+
 some_array = np.array([0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
 ```
 ```python
@@ -128,10 +130,11 @@ For arrays, the things that can go in square brackets (its "domain," as a functi
 
 ```python
 import numpy as np
+
 some_array = np.array([0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
-some_array[0]   # okay
-some_array[1]   # okay
-some_array[9]   # okay
+some_array[0]  # okay
+some_array[1]  # okay
+some_array[9]  # okay
 some_array[10]  # not okay
 ```
 
@@ -162,7 +165,7 @@ some_array[2:7]
 The above is common to all Python sequences. Arrays, however, can be multidimensional and this allows for more kinds of slicing.
 
 ```python
-array3d = np.arange(2*3*5).reshape(2, 3, 5)
+array3d = np.arange(2 * 3 * 5).reshape(2, 3, 5)
 ```
 
 Separating two slices in the square brackets with a comma
@@ -186,8 +189,10 @@ In addition to integers and slices, arrays can be included in the square bracket
 An array of booleans with the same length as the sliced array selects all items that line up with `True`.
 
 ```python
-some_array    = np.array([ 0.0,  1.1,  2.2,  3.3,  4.4,   5.5,  6.6,   7.7,  8.8,   9.9])
-boolean_array = np.array([True, True, True, True, True, False, True, False, True, False])
+some_array = np.array([0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
+boolean_array = np.array(
+    [True, True, True, True, True, False, True, False, True, False]
+)
 
 some_array[boolean_array]
 ```
@@ -195,8 +200,8 @@ some_array[boolean_array]
 An array of integers selects items by index.
 
 ```python
-some_array    = np.array([0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
-integer_array = np.array([  0,   1,   2,   3,   4,        6,        8     ])
+some_array = np.array([0.0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9])
+integer_array = np.array([0, 1, 2, 3, 4, 6, 8])
 
 some_array[integer_array]
 ```
@@ -210,7 +215,7 @@ some_array[np.array([4, 2, 2, 2, 9, 8, 3])]
 Both come up in natural contexts. Boolean arrays often come from performing a calculation on all elements of an array that returns boolean values.
 
 ```python
-even_valued_items = (some_array * 10 % 2 == 0)
+even_valued_items = some_array * 10 % 2 == 0
 
 some_array[even_valued_items]
 ```
@@ -246,7 +251,7 @@ x > -10 & x < 10  # probably not what you expect!
 Expressions like
 
 ```python
-even_valued_items = (some_array * 10 % 2 == 0)
+even_valued_items = some_array * 10 % 2 == 0
 ```
 
 perform the `*`, `%`, and `==` operations on every item of `some_array` and return arrays. Without NumPy, the above would have to be written as
