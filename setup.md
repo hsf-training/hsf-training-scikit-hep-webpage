@@ -72,12 +72,11 @@ Simply click the following button:
 
 If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the environment.yml file in base of this repository as:
 
-
 ```bash
-conda env create --file environment.yml
+conda install uproot awkward   # ... others?
 ```
 
-Alternatively, you can install all required packages locally with pip: Take a look at environment.yml for a list (this includes all dependencies listed under the pip key and some of the dependencies listed above).
+Alternatively, you can install all required packages locally with pip: Take a look at requirements.txt for a list.
 
 
 {% include links.md %}

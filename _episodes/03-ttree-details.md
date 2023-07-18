@@ -34,12 +34,11 @@ As a data analyst, you'll likely be concerned with TTrees and TBranches first-ha
 
 [This file](http://opendata.web.cern.ch/record/12341) is 2.1 GB, hosted by CERN's Open Data Portal.
 
-~~~
+```python
 import uproot
 file = uproot.open("root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root")
 file.classnames()
-~~~
-{: .language-python}
+```
 
 > ## Why the `;74` and `;75`?
 >
@@ -52,29 +51,26 @@ file.classnames()
 
 Just asking for the [uproot.TTree](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html) object and printing it out *does not* read the whole dataset.
 
-~~~
+```python
 tree = file["Events"]
 tree.show()
-~~~
-{: .language-python}
+```
 
 ## Reading part of a TTree
 
 In the last lesson, we learned that the most direct way to read one TBranch is to call [uproot.TBranch.array](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TBranch.TBranch.html#array).
 
-~~~
+```python
 tree["nMuon"].array()
-~~~
-{: .language-python}
+```
 
 However, it takes a long time because a lot of data have to be sent over the network.
 
 To limit the amount of data read, set `entry_start` and `entry_stop` to the range you want. The `entry_start` is inclusive, `entry_stop` exclusive, and the first entry would be indexed by `0`, just like slices in an array interface (first lesson). Uproot only reads as many TBaskets as are needed to provide these entries.
 
-~~~
+```python
 tree["nMuon"].array(entry_start=1000, entry_stop=2000)
-~~~
-{: .language-python}
+```
 
 These are the building blocks of a parallel data reader: each is responsible for a different slice. (See also [uproot.TTree.num_entries_for](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#num-entries-for) and [uproot.TTree.common_entry_offsets](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#common-entry-offsets), which can be used to pick `entry_start`/`entry_stop` in optimal ways.)
 
@@ -82,29 +78,26 @@ These are the building blocks of a parallel data reader: each is responsible for
 
 Suppose you know that you will need all of the muon TBranches. Asking for them in one request is more efficient than asking for each TBranch individually because the server can be working on reading the later TBaskets from disk while the earlier TBaskets are being sent over the network to you. Whereas a TBranch has an `array` method, the TTree has an `arrays` (plural) method for getting multiple arrays.
 
-~~~
+```python
 muons = tree.arrays(["Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge"], entry_stop=1000)
 muons
-~~~
-{: .language-python}
+```
 
 Now all five of these TBranches are in the output, `muons`, which is an Awkward Array. An Awkward Array of multiple TBranches has a dict-like interface, so we can get each variable from it by
 
-~~~
+```python
 muons["Muon_pt"]
 muons["Muon_eta"]
 muons["Muon_phi"]   # etc.
-~~~
-{: .language-python}
+```
 
 > ## Beware! It's `tree.arrays` that actually reads the data!
 >
 > If you're not careful with the [uproot.TTree.arrays](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#arrays) call, you could end up waiting a long time for data you don't want or you could run out of memory. Reading everything with
 >
-> ~~~
+> ```python
 > everything = tree.arrays()
-> ~~~
-> {: .language-python}
+> ```
 >
 > and then picking out the arrays you want is usually not a good idea. At the very least, set an `entry_stop`.
 {: .callout}
@@ -113,12 +106,11 @@ muons["Muon_phi"]   # etc.
 
 Suppose you have many muon TBranches and you don't want to list them all. The [uproot.TTree.keys](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#keys) and [uproot.TTree.arrays](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#arrays) both take a `filter_name` argument that can select them in various ways (see documentation). In particular, it's good to use the `keys` first, to know which branches match your filter, followed by `arrays`, to actually read them.
 
-~~~
+```python
 tree.keys(filter_name="Muon_*")
 
 tree.arrays(filter_name="Muon_*", entry_stop=1000)
-~~~
-{: .language-python}
+```
 
 (There are also `filter_typename` and `filter_branch` for more options.)
 
@@ -126,7 +118,7 @@ tree.arrays(filter_name="Muon_*", entry_stop=1000)
 
 The best way to figure out what you're doing is to tinker with small datasets, and then scale them up. Here, we take 1000 events and compute dimuon masses.
 
-~~~
+```python
 muons = tree.arrays(entry_stop=1000)
 cut = (muons["nMuon"] == 2)
 
@@ -141,19 +133,17 @@ import hist
 masshist = hist.Hist(hist.axis.Regular(120, 0, 120, label="mass [GeV]"))
 masshist.fill(mass)
 masshist.plot()
-~~~
-{: .language-python}
+```
 
 That worked (there's a Z peak). Now to do this over the whole file, we should be more careful about what we're reading,
 
-~~~
+```python
 tree.keys(filter_name=["nMuon", "/Muon_(pt|eta|phi)/"])
-~~~
-{: .language-python}
+```
 
 and accumulate data gradually with [uproot.TTree.iterate](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#iterate). This handles the `entry_start`/`entry_stop` in a loop.
 
-~~~
+```python
 masshist = hist.Hist(hist.axis.Regular(120, 0, 120, label="mass [GeV]"))
 
 for muons in tree.iterate(filter_name=["nMuon", "/Muon_(pt|eta|phi)/"]):
@@ -168,8 +158,7 @@ for muons in tree.iterate(filter_name=["nMuon", "/Muon_(pt|eta|phi)/"]):
     print(masshist.sum() / tree.num_entries)
 
 masshist.plot()
-~~~
-{: .language-python}
+```
 
 ## Getting data into NumPy or Pandas
 
@@ -177,14 +166,13 @@ In all of the above examples, the `array`, `arrays`, and `iterate` methods retur
 
 Use `library="np"` or `library="pd"` to get NumPy or Pandas, respectively.
 
-~~~
+```python
 tree["nMuon"].array(library="np", entry_stop=10000)
 
 tree.arrays(library="np", entry_stop=10000)
 
 tree.arrays(library="pd", entry_stop=10000)
-~~~
-{: .language-python}
+```
 
 NumPy is great for non-jagged data like the `"nMuon"` branch, but it has to represent an unknown number of muons per event as an array of NumPy arrays (i.e. Python objects).
 
