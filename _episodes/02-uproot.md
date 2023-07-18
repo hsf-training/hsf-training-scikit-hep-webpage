@@ -32,14 +32,13 @@ As a consequence of being an independent implementation of ROOT I/O, Uproot migh
 
 To open a file for reading, pass the name of the file to [uproot.open](https://uproot.readthedocs.io/en/latest/uproot.reading.open.html). In scripts, it is good practice to use [Python's with statement](https://realpython.com/python-with-statement/) to close the file when you're done, but if you're working interactively, you can use a direct assignment.
 
-~~~
+```python
 import skhep_testdata
 filename = skhep_testdata.data_path("uproot-Event.root")   # downloads this test file and gets a local path to it
 
 import uproot
 file = uproot.open(filename)
-~~~
-{: .language-python}
+```
 
 To access a remote file via HTTP or XRootD, use a `"http://..."`, `"https://..."`, or `"root://..."` URL. If the Python interface to XRootD is not installed, the error message will explain how to install it.
 
@@ -47,72 +46,64 @@ To access a remote file via HTTP or XRootD, use a `"http://..."`, `"https://..."
 
 This "`file`" object actually represents a directory, and the named objects in that directory are accessible with a dict-like interface. Thus, `keys`, `values`, and `items` return the key names and/or read the data. If you want to just list the objects without reading, use `keys`. (This is like ROOT's `ls()`, except that you get a Python list.)
 
-~~~
+```python
 file.keys()
-~~~
-{: .language-python}
+```
 
 Often, you want to know the type of each object as well, so [uproot.ReadOnlyDirectory](https://uproot.readthedocs.io/en/latest/uproot.reading.ReadOnlyDirectory.html) objects also have a `classnames` method, which returns a dict of object names to class names (without reading them).
 
-~~~
+```python
 file.classnames()
-~~~
-{: .language-python}
+```
 
 ## Reading a histogram
 
 If you're familiar with ROOT, `TH1F` would be recognizable as histograms and `TTree` would be recognizable as a dataset. To read one of the histograms, put its name in square brackets:
 
-~~~
+```python
 h = file["hstat"]
 h
-~~~
-{: .language-python}
+```
 
 Uproot doesn't do any plotting or histogram manipulation, so the most useful methods of `h` begin with "to": `to_boost` (boost-histogram), `to_hist` (hist), `to_numpy` (NumPy's 2-tuple of contents and edges), `to_pyroot` (PyROOT), etc.
 
-~~~
+```python
 h.to_hist().plot()
-~~~
-{: .language-python}
+```
 
 Uproot histograms also satisfy the [UHI plotting protocol](https://uhi.readthedocs.io/en/latest/plotting.html), so they have methods like `values` (bin contents), `variances` (errors squared), and `edges`.
 
-~~~
+```python
 h.values()
 h.variances()
 h.axis("x").edges()   # "x", "y", "z" or 0, 1, 2
-~~~
-{: .language-python}
+```
 
 ## Reading a TTree
 
 A TTree represents a potentially large dataset. Getting it from the [uproot.ReadOnlyDirectory](https://uproot.readthedocs.io/en/latest/uproot.reading.ReadOnlyDirectory.html) only returns its TBranch names and types. The `show` method is a convenient way to list its contents:
 
-~~~
+```python
 t = file["T"]
 t.show()
-~~~
-{: .language-python}
+```
 
 Be aware that you can get the same information from `keys` (an [uproot.TTree](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html) is dict-like), `typename`, and `interpretation`.
 
-~~~
+```python
 t.keys()
 t["event/fNtrack"]
 t["event/fNtrack"].typename
 t["event/fNtrack"].interpretation
-~~~
-{: .language-python}
+```
 
 (If an [uproot.TBranch](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TBranch.TBranch.html) has no `interpretation`, it can't be read by Uproot.)
 
 The most direct way to read data from an [uproot.TBranch](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TBranch.TBranch.html) is by calling its `array` method.
 
-~~~
+```python
 t["event/fNtrack"].array()
-~~~
-{: .language-python}
+```
 
 We'll consider other methods in the next lesson.
 
@@ -120,22 +111,20 @@ We'll consider other methods in the next lesson.
 
 This file also contains an instance of type [TProcessID](https://root.cern.ch/doc/master/classTProcessID.html). These aren't typically useful in data analysis, but Uproot manages to read it anyway because it follows certain conventions (it has "class streamers"). It's presented as a generic object with an `all_members` property for its data members (through all superclasses).
 
-~~~
+```python
 file["ProcessID0"]
 file["ProcessID0"].all_members
-~~~
-{: .language-python}
+```
 
 Here's a more useful example of that: a supernova search with the IceCube experiment has custom classes for its data, which Uproot reads and represents as objects with `all_members`.
 
-~~~
+```python
 icecube = uproot.open(skhep_testdata.data_path("uproot-issue283.root"))
 icecube.classnames()
 
 icecube["config/detector"].all_members
 icecube["config/detector"].all_members["ChannelIDMap"]
-~~~
-{: .language-python}
+```
 
 # Writing data to a file
 
@@ -145,11 +134,10 @@ Uproot's ability to *write* data is more limited than its ability to *read* data
 
 First of all, a file must be opened for writing, either by creating a completely new file or updating an existing one.
 
-~~~
+```python
 output1 = uproot.recreate("completely-new-file.root")
 output2 = uproot.update("existing-file.root")
-~~~
-{: .language-python}
+```
 
 (Uproot cannot write over a network; output files must be local.)
 
@@ -157,15 +145,14 @@ output2 = uproot.update("existing-file.root")
 
 These [uproot.WritableDirectory](https://uproot.readthedocs.io/en/latest/uproot.writing.writable.WritableDirectory.html) objects have a dict-like interface: you can put data in them by assigning to square brackets.
 
-~~~
+```python
 output1["some_string"] = "This will be a TObjString."
 
 output1["some_histogram"] = file["hstat"]
 
 import numpy as np
 output1["nested_directory/another_histogram"] = np.histogram(np.random.normal(0, 1, 1000000))
-~~~
-{: .language-python}
+```
 
 In ROOT, the name of an object is a property of the object, but in Uproot, it's a key in the TDirectory that holds the object, so that's why the name is on the left-hand side of the assignment, in square brackets. Only the data types listed in the blue box [in the documentation](https://uproot.readthedocs.io/en/latest/basic.html#writing-objects-to-a-file) are supported: mostly just histograms.
 
@@ -175,24 +162,22 @@ TTrees are potentially large and might not fit in memory. Generally, you'll need
 
 One way to do this is to assign the first batch and `extend` it with subsequent batches:
 
-~~~
+```python
 import numpy as np
 
 output1["tree1"] = {"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)}
 output1["tree1"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
 output1["tree1"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
-~~~
-{: .language-python}
+```
 
 another is to create an empty TTree with [uproot.WritableDirectory.mktree](https://uproot.readthedocs.io/en/latest/uproot.writing.writable.WritableDirectory.html#mktree), so that every write is an extension.
 
-~~~
+```python
 output1.mktree("tree2", {"x": np.int32, "y": np.float64})
 output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
 output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
 output1["tree2"].extend({"x": np.random.randint(0, 10, 1000000), "y": np.random.normal(0, 1, 1000000)})
-~~~
-{: .language-python}
+```
 
 Performance tips are given in the next lesson, but in general, it pays to write few large batches, rather than many small batches.
 
