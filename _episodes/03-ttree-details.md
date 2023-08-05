@@ -161,10 +161,8 @@ for muons in tree.iterate(filter_name=["nMuon", "/Muon_(pt|eta|phi)/"]):
     pt0  = muons["Muon_pt",  cut, 0]; pt1  = muons["Muon_pt",  cut, 1]
     eta0 = muons["Muon_eta", cut, 0]; eta1 = muons["Muon_eta", cut, 1]
     phi0 = muons["Muon_phi", cut, 0]; phi1 = muons["Muon_phi", cut, 1]
-
     mass = np.sqrt(2*pt0*pt1*(np.cosh(eta0 - eta1) - np.cos(phi0 - phi1)))
     masshist.fill(mass)
-
     print(masshist.sum() / tree.num_entries)
 
 masshist.plot()
