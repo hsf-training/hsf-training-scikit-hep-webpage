@@ -36,7 +36,7 @@ NumPy would not be able to perform such a slice, or even represent an array of v
 
 ~~~
 import numpy as np
-np.array([[0.0, 1.1, 2.2], [], [3.3, 4.4], [5.5], [6.6, 7.7, 8.8, 9.9]])
+np.array([[0.0, 1.1, 2.2], [], [3.3, 4.4], [5.5], [6.6, 7.7, 8.8, 9.9]]) # generates a ValueError
 ~~~
 {: .language-python}
 
@@ -232,6 +232,8 @@ file = uproot.open("root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2
 tree = file["Events"]
 
 arrays = tree.arrays(filter_name="/Muon_(pt|eta|phi|charge)/", entry_stop=10000)
+
+import awkward as ak
 
 muons = ak.zip({
     "pt": arrays["Muon_pt"],
