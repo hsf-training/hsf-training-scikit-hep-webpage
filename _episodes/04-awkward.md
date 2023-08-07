@@ -36,6 +36,7 @@ NumPy would not be able to perform such a slice, or even represent an array of v
 ```python
 import numpy as np
 
+# generates a ValueError
 np.array([[0.0, 1.1, 2.2], [], [3.3, 4.4], [5.5], [6.6, 7.7, 8.8, 9.9]])
 ```
 
@@ -215,6 +216,7 @@ In this example, we'll [ak.zip](https://awkward-array.readthedocs.io/en/latest/_
 
 ```python
 import uproot
+import awkward as ak
 
 file = uproot.open(
     "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root"
