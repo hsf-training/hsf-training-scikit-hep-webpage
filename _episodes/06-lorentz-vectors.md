@@ -112,6 +112,8 @@ import skhep_testdata, uproot
 import awkward as ak
 import particle
 from hepunits import GeV
+import vector
+vector.register_awkward()
 
 picodst = uproot.open(
     "https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst"
