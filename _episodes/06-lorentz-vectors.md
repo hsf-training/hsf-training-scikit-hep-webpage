@@ -38,6 +38,7 @@ To fit in with the rest of the ecosystem, Vector must be an array-oriented libra
 ```python
 import skhep_testdata, uproot
 import awkward as ak
+import vector
 
 tree = uproot.open(skhep_testdata.data_path("uproot-Zmumu.root"))["events"]
 
@@ -107,6 +108,11 @@ In a high-energy pp collision, for instance, a spray of hadrons is produced whic
 Some people need to do jet-clustering at the analysis level. The fastjet package makes it possible to do that an (Awkward) array at a time.
 
 ```python
+import skhep_testdata, uproot
+import awkward as ak
+import particle
+from hepunits import GeV
+
 picodst = uproot.open(
     "https://pivarski-princeton.s3.amazonaws.com/pythia_ppZee_run17emb.picoDst.root:PicoDst"
 )
