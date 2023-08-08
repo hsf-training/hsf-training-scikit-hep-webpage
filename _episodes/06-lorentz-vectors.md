@@ -89,7 +89,7 @@ The Particle library provides all of the particle masses, decay widths, etc.
 import particle
 from hepunits import GeV
 
-particle.Particle.from_string("p~")
+particle.Particle.findall("p~")
 
 z_boson = particle.Particle.from_string("Z0")
 z_boson.mass / GeV, z_boson.width / GeV
