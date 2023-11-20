@@ -48,6 +48,7 @@ Wait for a few seconds to see that nothing else runs.
 Now look at your left side-panel. You should see a file named `notebook.ipynb`. Click on it.
 A new tab with the notebook opens.
 
+> ## Note
 > If the notebook does not show up after several minutes (and you only see the "blue progress bar" on top),
 > you might want to try a different browser. There have been reports about this happening with
 > Safari on OSX and with firefox private windows.
