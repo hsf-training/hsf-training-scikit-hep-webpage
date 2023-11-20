@@ -100,6 +100,8 @@ h[hist.loc(80) : hist.loc(100) : sum]
 Things get more interesting when a histogram has multiple dimensions.
 
 ```python
+import uproot
+import hist
 import awkward as ak
 
 picodst = uproot.open(
@@ -137,6 +139,7 @@ A histogram object can have more dimensions than you can reasonably visualize—
 By directly writing a loss function in Minuit:
 
 ```python
+import numpy as np
 import iminuit.cost
 
 norm = len(h.axes[0].widths) / (h.axes[0].edges[-1] - h.axes[0].edges[0]) / h.sum()
