@@ -139,6 +139,19 @@ cleaned = muon_pt[particle_cut]
 
 intermediary and you can't use the variable `event_cut`, as-is.
 
+
+Hint: the final result should be a jagged array, just like muon_pt, but with fewer lists and fewer items in those lists.
+
+> ## Solution (no peeking!)
+> cleaned = muon_pt[particle_cut]
+> final_result = cleaned[event_cut]
+> final_result.tolist()
+> [[32.911224365234375, 23.72175407409668],
+> [57.6067008972168, 53.04507827758789],
+> [23.906352996826172]]
+{: .solution}
+
+
 # Combinatorics in Awkward Array
 
 Variable-length lists present more problems than just slicing and computing formulas array-at-a-time. Often, we want to combine particles in all possible pairs (within each event) to look for decay chains.
