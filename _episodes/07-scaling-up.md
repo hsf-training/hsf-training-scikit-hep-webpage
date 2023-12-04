@@ -23,7 +23,7 @@ However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](ht
 # Scikit-HEP Resources
 
 - [scikit-hep.org](https://scikit-hep.org)
-- Uproot [GitHub](https://github.com/scikit-hep/uproot4), [documentation](https://uproot.readthedocs.io)
+- Uproot [GitHub](https://github.com/scikit-hep/uproot5), [documentation](https://uproot.readthedocs.io)
 - Awkward Array [GitHub](https://github.com/scikit-hep/awkward-1.0), [documentation](https://awkward-array.org)
 - boost-histogram [GitHub](https://github.com/scikit-hep/boost-histogram), [documentation](https://boost-histogram.readthedocs.io)
 - hist [GitHub](https://github.com/scikit-hep/hist), [documentation](https://hist.readthedocs.io)
