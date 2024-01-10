@@ -1,5 +1,5 @@
 ---
-title: "Lorentz vectors, particle PDG, jet-clustering, oh my!"
+title: "Lorentz vectors, particle PDG IDs, jet-clustering, oh my!"
 teaching: 15
 exercises: 0
 questions:
@@ -81,24 +81,32 @@ mu1.deltaR(mu2)
 muons.to_rhophieta()
 ```
 
-# Particle PDG
+# Particle properties and PDG identifiers
 
-The Particle library provides all of the particle masses, decay widths, etc.
+The Particle library provides all of the particle masses, decay widths and more from the PDG.
+It further contains a series of tools to programmatically query particle properties and use several identification schemes.
 
 ```python
 import particle
 from hepunits import GeV
 
-particle.Particle.findall("p~")
+particle.Particle.findall("pi")
 
-z_boson = particle.Particle.from_string("Z0")
+z_boson = particle.Particle.from_name("Z0")
 z_boson.mass / GeV, z_boson.width / GeV
+
+print(z_boson.describe())
 
 particle.Particle.from_pdgid(111)
 
 particle.Particle.findall(
     lambda p: p.pdgid.is_meson and p.pdgid.has_strange and p.pdgid.has_charm
 )
+
+print(particle.PDGID(211).info())
+
+pdgid = particle.Corsika7ID(11).to_pdgid()
+particle.Particle.from_pdgid(pdgid)
 ```
 
 # Jet clustering
