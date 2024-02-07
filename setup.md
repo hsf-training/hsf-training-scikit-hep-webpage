@@ -48,6 +48,7 @@ Wait for a few seconds to see that nothing else runs.
 Now look at your left side-panel. You should see a file named `notebook.ipynb`. Click on it.
 A new tab with the notebook opens.
 
+> ## Note
 > If the notebook does not show up after several minutes (and you only see the "blue progress bar" on top),
 > you might want to try a different browser. There have been reports about this happening with
 > Safari on OSX and with firefox private windows.
@@ -72,9 +73,8 @@ Simply click the following button:
 
 If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) file (plus its [requirements.txt](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/requirements.txt) file) in [base](https://github.com/hsf-training/hsf-training-scikit-hep-webpage) of this repository as:
 
-
 ```bash
-conda env create --file environment.yml
+conda install uproot awkward   # ... others?
 ```
 
 Alternatively, you can install all required packages locally with pip: Take a look at the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) and the [requirements.txt](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/requirements.txt) for a list (this includes all dependencies listed under the pip key and some of the dependencies listed above).
