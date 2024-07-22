@@ -2,6 +2,9 @@ name: software-carpentries-scikit-hep-tutorial
 channels:
   - conda-forge
 dependencies:
+  - aiohttp
+  - fastjet
+  - fsspec-xrootd
   - jupyterlab
   - lz4
   - matplotlib
@@ -17,5 +20,3 @@ dependencies:
   - xrootd
   - zfit
   - zstandard
-  - pip:
-     - fastjet
