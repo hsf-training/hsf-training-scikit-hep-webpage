@@ -51,13 +51,13 @@ In addition to the same bin contents and edges as NumPy, Matplotlib includes a p
 
 The main feature that these functions lack (without some effort) is refillability. High-energy physicists usually want to fill histograms with more data than can fit in memory, which means setting bin intervals on an empty container and filling it in batches (sequentially or in parallel).
 
-Boost-histogram is a library designed for that purpose:
+Boost-histogram is a library designed for that purpose. It is intended as an infrastructure component. You can explore its "low-level" functionality upon importing it:
 
 ```python
 import boost_histogram as bh
 ```
 
-This library is intended as an infrastructure component; a more user-friendly layer (with plotting, for instance) is provided by a library called "hist."
+A more user-friendly layer (with plotting, for instance) is provided by a library called "hist."
 
 ```python
 import hist
