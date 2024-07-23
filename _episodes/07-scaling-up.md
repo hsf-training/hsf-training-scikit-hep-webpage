@@ -46,6 +46,6 @@ However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](ht
 
 and finally
 
-- cookie [GitHub](https://github.com/scikit-hep/cookie), [documentation](https://scikit-hep.org/developer), a template for making your own...
+- cookie [GitHub](https://github.com/scientific-python/cookie), [documentation](https://learn.scientific-python.org/development), a template for making your own...
 
 {% include links.md %}

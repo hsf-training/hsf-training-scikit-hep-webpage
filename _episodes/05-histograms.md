@@ -82,19 +82,31 @@ h[10:110].plot()
 but often you want to select bins by coordinate value
 
 ```python
+# Explicit version
 h[hist.loc(90) :].plot()
+
+# Short version
+h[90j:].plot()
 ```
 
 or rebin by a factor,
 
 ```python
+# Explicit version
 h[:: hist.rebin(2)].plot()
+
+# Short version
+h[::2j].plot()
 ```
 
 or sum over a range.
 
 ```python
+# Explicit version
 h[hist.loc(80) : hist.loc(100) : sum]
+
+# Short version
+h[90j:100j:sum]
 ```
 
 Things get more interesting when a histogram has multiple dimensions.
@@ -123,13 +135,9 @@ vertexhist.fill(
 )
 
 vertexhist[:, :, sum].plot2d_full()
-vertexhist[
-    hist.loc(-0.25) : hist.loc(0.25), hist.loc(-0.25) : hist.loc(0.25), sum
-].plot2d_full()
+vertexhist[-0.25j:0.25j, -0.25j:0.25j, sum].plot2d_full()
 vertexhist[sum, sum, :].plot()
-vertexhist[
-    hist.loc(-0.25) : hist.loc(0.25) : sum, hist.loc(-0.25) : hist.loc(0.25) : sum, :
-].plot()
+vertexhist[-0.25j:0.25j:sum, -0.25j:0.25j:sum, :].plot()
 ```
 
 A histogram object can have more dimensions than you can reasonably visualize—you can slice, rebin, and project it into something visual later.

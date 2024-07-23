@@ -75,12 +75,12 @@ Uproot doesn't do any plotting or histogram manipulation, so the most useful met
 h.to_hist().plot()
 ```
 
-Uproot histograms also satisfy the [UHI plotting protocol](https://uhi.readthedocs.io/en/latest/plotting.html), so they have methods like `values` (bin contents), `variances` (errors squared), and `edges`.
+Uproot histograms also satisfy the [UHI plotting protocol](https://uhi.readthedocs.io/en/latest/plotting.html), so they have methods like `values` (bin contents), `variances` (errors squared), and `axes`.
 
 ```python
 h.values()
 h.variances()
-h.axis("x").edges()  # "x", "y", "z" or 0, 1, 2
+list(h.axes[0])  # "x", "y", "z" or 0, 1, 2
 ```
 
 ## Reading a TTree
