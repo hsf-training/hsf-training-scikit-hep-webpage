@@ -1,4 +1,6 @@
+aiohttp
 fastjet
+fsspec-xrootd
 lz4
 matplotlib
 nlopt
