@@ -92,7 +92,7 @@ from hepunits import GeV
 
 particle.Particle.findall("pi")
 
-z_boson = particle.Particle.from_name("Z0")
+z_boson = particle.Particle.from_string("Z0")
 z_boson.mass / GeV, z_boson.width / GeV
 
 print(z_boson.describe())

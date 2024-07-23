@@ -72,7 +72,7 @@ However, it takes a long time because a lot of data have to be sent over the net
 To limit the amount of data read, set `entry_start` and `entry_stop` to the range you want. The `entry_start` is inclusive, `entry_stop` exclusive, and the first entry would be indexed by `0`, just like slices in an array interface (first lesson). Uproot only reads as many TBaskets as are needed to provide these entries.
 
 ```python
-tree["nMuon"].array(entry_start=1000, entry_stop=2000)
+tree["nMuon"].array(entry_start=1_000, entry_stop=2_000)
 ```
 
 These are the building blocks of a parallel data reader: each is responsible for a different slice. (See also [uproot.TTree.num_entries_for](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#num-entries-for) and [uproot.TTree.common_entry_offsets](https://uproot.readthedocs.io/en/latest/uproot.behaviors.TTree.TTree.html#common-entry-offsets), which can be used to pick `entry_start`/`entry_stop` in optimal ways.)
@@ -83,7 +83,7 @@ Suppose you know that you will need all of the muon TBranches. Asking for them i
 
 ```python
 muons = tree.arrays(
-    ["Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge"], entry_stop=1000
+    ["Muon_pt", "Muon_eta", "Muon_phi", "Muon_mass", "Muon_charge"], entry_stop=1_000
 )
 muons
 ```
@@ -114,7 +114,7 @@ Suppose you have many muon TBranches and you don't want to list them all. The [u
 ```python
 tree.keys(filter_name="Muon_*")
 
-tree.arrays(filter_name="Muon_*", entry_stop=1000)
+tree.arrays(filter_name="Muon_*", entry_stop=1_000)
 ```
 
 (There are also `filter_typename` and `filter_branch` for more options.)
@@ -124,7 +124,7 @@ tree.arrays(filter_name="Muon_*", entry_stop=1000)
 The best way to figure out what you're doing is to tinker with small datasets, and then scale them up. Here, we take 1000 events and compute dimuon masses.
 
 ```python
-muons = tree.arrays(entry_stop=1000)
+muons = tree.arrays(entry_stop=1_000)
 cut = muons["nMuon"] == 2
 
 pt0 = muons["Muon_pt", cut, 0]
@@ -178,11 +178,11 @@ In all of the above examples, the `array`, `arrays`, and `iterate` methods retur
 Use `library="np"` or `library="pd"` to get NumPy or Pandas, respectively.
 
 ```python
-tree["nMuon"].array(library="np", entry_stop=10000)
+tree["nMuon"].array(library="np", entry_stop=10_000)
 
-tree.arrays(library="np", entry_stop=10000)
+tree.arrays(library="np", entry_stop=10_000)
 
-tree.arrays(library="pd", entry_stop=10000)
+tree.arrays(library="pd", entry_stop=10_000)
 ```
 
 NumPy is great for non-jagged data like the `"nMuon"` branch, but it has to represent an unknown number of muons per event as an array of NumPy arrays (i.e. Python objects).
