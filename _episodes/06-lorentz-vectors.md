@@ -92,7 +92,7 @@ from hepunits import GeV
 
 particle.Particle.findall("pi")
 
-z_boson = particle.Particle.from_string("Z0")
+z_boson = particle.Particle.from_name("Z0")
 z_boson.mass / GeV, z_boson.width / GeV
 
 print(z_boson.describe())
@@ -131,7 +131,7 @@ px, py, pz = ak.unzip(
     picodst.arrays(filter_name=["Track/Track.mPMomentum[XYZ]"], entry_stop=100)
 )
 
-probable_mass = particle.Particle.from_string("pi+").mass / GeV
+probable_mass = particle.Particle.from_name("pi+").mass / GeV
 
 pseudojets = ak.zip(
     {"px": px, "py": py, "pz": pz, "mass": probable_mass}, with_name="Momentum4D"
