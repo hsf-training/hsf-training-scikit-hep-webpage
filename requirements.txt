@@ -1,4 +1,5 @@
 aiohttp
+awkward-pandas
 fastjet
 fsspec-xrootd
 lz4
