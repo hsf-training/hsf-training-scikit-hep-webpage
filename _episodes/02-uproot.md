@@ -203,4 +203,45 @@ Performance tips are given in the next lesson, but in general, it pays to write 
 
 The only data types that can be assigned or passed to `extend` are listed in the blue box [in this documentation](https://uproot.readthedocs.io/en/latest/basic.html#writing-ttrees-to-a-file). This includes jagged arrays (described in the lesson after next), but not more complex types.
 
+# RNTuples
+
+TTree has been the default format to store large datasets in ROOT files. However, they have slowly become outdated and are not optimized for modern systems. This is where the RNTuple format comes in. It is a modern serialization format that is designed with modern systems in mind and is planned to replace TTree in the coming years.
+
+RNTuples are much simpler than TTrees by design, and this time there is an official specification, which makes it much easier for third-party I/O packages like Uproot to support. Uproot already supports reading the full RNTuple specification, meaning that you can read any RNTuple you find in the wild. It also supports writing a large part of the specification, and intends to support as much as it makes sense for data analysis.
+
+To ease the transition into RNTuples, we are designing the interface to match the one for TTrees as closely as possible. Let's look at a simple example for reading and writing RNTuples.
+
+Again, we'll use a sample file from the
+```python
+filename = skhep_testdata.data_path("ntpl001_staff_rntuple_v1-0-0-0.root")
+
+file = uproot.open(filename)
+```
+
+This time, if we print the class names, we see that there is an RNTuple instead of a TTree.
+```python
+file.classnames()
+```
+
+Then to read the data from the RNTuple works in an analogous way.
+```python
+rntuple = file["Staff"]
+data = rntuple.arrays()
+```
+
+Writing again works in a very similar way to TTrees. However, since TTrees are still the default format used in more places, writing something like `file[key] = data` will default to writing the data as a TTree. When we want to write an RNTuple, we need to specifically tell Uproot that we want to do so. For now, we need to use an Awkward Array (which will be covered in a later lesson) to specify the data, but the interface will be extended to match TTrees.
+```python
+import awkward as ak
+
+data = ak.Array({"my_int_data": [1, 2, 3], "my_float_data": [1.0, 2.0, 3.0]})
+more_data = ak.Array({"my_int_data": [4, 5, 6], "my_float_data": [4.0, 5.0, 6.0]})
+
+output3 = uproot.recreate("new-file-with-rntuple.root")
+
+rntuple = output3.mkrntuple("my_rntuple", data)
+rntuple.extend(more_data)
+```
+
+For the rest of the tutorial we will stick to using TTrees since this is still the main data format that you'll encounter for now.
+
 {% include links.md %}
