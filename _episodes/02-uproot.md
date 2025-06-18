@@ -205,7 +205,7 @@ The only data types that can be assigned or passed to `extend` are listed in the
 
 # Reading and writing RNTuples
 
-TTree has been the default format to store large datasets in ROOT files. However, they have slowly become outdated and are not optimized for modern systems. This is where the RNTuple format comes in. It is a modern serialization format that is designed with modern systems in mind and is planned to replace TTree in the coming years.
+TTree has been the default format to store large datasets in ROOT files for decades. However, it has slowly become outdated and are not optimized for modern systems. This is where the RNTuple format comes in. It is a modern serialization format that is designed with modern systems in mind and is planned to replace TTree in the coming years. [Version 1.0.0.0](https://cds.cern.ch/record/2923186) is out and will be supported "forever".
 
 RNTuples are much simpler than TTrees by design, and this time there is an official specification, which makes it much easier for third-party I/O packages like Uproot to support. Uproot already supports reading the full RNTuple specification, meaning that you can read any RNTuple you find in the wild. It also supports writing a large part of the specification, and intends to support as much as it makes sense for data analysis.
 
