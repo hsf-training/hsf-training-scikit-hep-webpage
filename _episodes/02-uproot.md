@@ -203,7 +203,7 @@ Performance tips are given in the next lesson, but in general, it pays to write 
 
 The only data types that can be assigned or passed to `extend` are listed in the blue box [in this documentation](https://uproot.readthedocs.io/en/latest/basic.html#writing-ttrees-to-a-file). This includes jagged arrays (described in the lesson after next), but not more complex types.
 
-# RNTuples
+# Reading and writing RNTuples
 
 TTree has been the default format to store large datasets in ROOT files. However, they have slowly become outdated and are not optimized for modern systems. This is where the RNTuple format comes in. It is a modern serialization format that is designed with modern systems in mind and is planned to replace TTree in the coming years.
 
