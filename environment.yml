@@ -1,23 +1,23 @@
-name: software-carpentries-scikit-hep-tutorial
+name: skhep-tutorial
 channels:
   - conda-forge
 dependencies:
-  - aiohttp
-  - awkward-pandas
-  - fastjet
-  - fsspec-xrootd
-  - jupyterlab
-  - lz4
-  - matplotlib
-  - nb_conda_kernels
-  - nlopt
-  - numba
-  - numpy
-  - pandas
-  - python
-  - python-xxhash
-  - scikit-hep
-  - scikit-hep-testdata
-  - xrootd
-  - zfit
-  - zstandard
+  - uproot=5.4.1
+  - xrootd=5.7.1
+  - fsspec-xrootd=0.4.0
+  - awkward=2.6.9
+  - hist=2.8.0
+  - scikit-hep-testdata=0.4.48
+  - matplotlib=3.9.2
+  - particle=0.25.2
+  - vector=1.5.2
+  - pandas=2.2.3
+  - requests=2.32.3
+  - aiohttp=3.10.10
+  - python=3.12
+  - fastjet=3.4.0.6
+  - awkward-pandas=2023.8.0
+  - zfit=0.24.3
+  - fastjet=3.4.0.6
+  - pip:
+    - tf-keras==2.18.0
