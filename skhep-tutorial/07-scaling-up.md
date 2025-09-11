@@ -1,16 +1,4 @@
----
-title: "Tools for scaling up"
-teaching: 10
-exercises: 0
-questions:
- - "How do I turn working code fragments into batch jobs?"
- - "Where can I look for more help?"
-objectives:
- - "Learn where to go next."
-keypoints:
- - "See Coffea for more about scaling up your analysis."
- - "Pythonic high-energy physics is a broad and growing ecosystem."
----
+# Tools for scaling up
 
 # Scaling up
 
@@ -18,7 +6,7 @@ The tools described in these lessons are intended to be used *within* a script t
 
 You could use any of them in an ordinary GRID job (or other batch processor).
 
-However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](https://coffeateam.github.io/coffea/)) is building a *distributed* ecosystem that integrates Pythonic analysis with data analysis farms. This is too large of a subject to cover here, but check out the software and join the [Coffea user meetings](https://indico.cern.ch/category/11674/) if you're interested.
+However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](https://coffea-hep.readthedocs.io/en/latest/)) is building a *distributed* ecosystem that integrates Pythonic analysis with data analysis farms. This is too large of a subject to cover here, but check out the software and join the [Coffea user meetings](https://indico.cern.ch/category/11674/) if you're interested.
 
 # Scikit-HEP Resources
 
@@ -48,4 +36,3 @@ and finally
 
 - cookie [GitHub](https://github.com/scientific-python/cookie), [documentation](https://learn.scientific-python.org/development), a template for making your own...
 
-{% include links.md %}

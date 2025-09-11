@@ -18,3 +18,5 @@ Gemfile.lock
 
 # MyST build outputs
 _build
+
+*.root
