@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: "scikit_hep_tutorial/_build/html"
+          path: "_build/html"
 
   deploy-book:
     name: Deploy Book
