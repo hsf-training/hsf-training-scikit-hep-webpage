@@ -4,7 +4,7 @@
 
 This is a tutorial on [Scikit-HEP](https://scikit-hep.org), a collection of packages for particle physics analysis in Python.
 
-![scikit hep ecosystem](fig/scikit-hep-logos.png)
+![scikit hep ecosystem](skhep-tutorial/img/scikit-hep-logos.png)
 
 It was written by [Jim Pivarski][jpivarski] using the [Software Carpentry's][carpentries] lesson template and first taught during a [Software Carpentry Workshop](https://indico.cern.ch/event/1097111/timetable/#day-2021-12-15) on December 15, 2021.
 
@@ -23,16 +23,17 @@ how to write new episodes.
 
 ## Maintainer(s)
 
-* [Jim Pivarski][jpivarski]
+* [Andres Rios Tascon][ariostas]
 
 ## Authors
 
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
+A list of contributors to the lesson can be found in [AUTHORS](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/AUTHORS)
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION)
+To cite this lesson, please consult with [CITATION](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/CITATION)
 
 [lesson-example]: https://carpentries.github.io/lesson-example
 [jpivarski]: https://github.com/jpivarski/
+[ariostas]: https://github.com/ariostas/
 [carpentries]: https://software-carpentry.org/

@@ -15,3 +15,8 @@ vendor/
 .docker-vendor/
 Gemfile.lock
 .*history
+
+# MyST build outputs
+_build
+
+*.root
