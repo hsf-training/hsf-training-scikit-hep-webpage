@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build-book:
     name: Build Book
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 30
     # Required for miniconda to activate conda
     defaults:
