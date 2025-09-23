@@ -91,6 +91,25 @@ your clone of the originating `gh-pages` branch.
 Lastly, published copies of all the lessons are available in the `gh-pages` branch of the originating
 repository for reference while revising.
 
+# Rendering the site locally
+
+This site is built with Jupyter Book 2. At the time of writing, version 2 is still a pre-release, so it needs to be installed with `pip install --pre "jupyter-book==2.*"`. Once a stable version is available, it can be installed with `pip install jupyter-book` or `conda install -c conda-forge "jupyter-book>=2"`.
+
+A live version of the site can be served locally by running the following command in the root of the repository:
+
+```
+jupyter book start
+```
+
+You can make changes in the source files and they will be reflected in the live version of the site.
+
+Once you are satisfied, you can check that everything builds correctly from scratch by deleting the `_build` directory and running the full build.
+
+```
+rm -rf _build
+jupyter book build --execute --strict --html
+```
+
 ## Other Resources
 
 More information on how to contribute or how to contact us: [HSF training home][hsf-training]

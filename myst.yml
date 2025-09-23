@@ -16,15 +16,13 @@ project:
   toc:
     - file: README.md
     - file: setup.md
-    - title: Lessons
-      children:
-        - file: skhep-tutorial/01-introduction.ipynb
-        - file: skhep-tutorial/02-uproot.ipynb
-        - file: skhep-tutorial/03-ttree-details.ipynb
-        - file: skhep-tutorial/04-awkward.ipynb
-        - file: skhep-tutorial/05-histograms.ipynb
-        - file: skhep-tutorial/06-lorentz-vectors.ipynb
-        - file: skhep-tutorial/07-scaling-up.md
+    - file: skhep-tutorial/01-introduction.ipynb
+    - file: skhep-tutorial/02-uproot.ipynb
+    - file: skhep-tutorial/03-ttree-details.ipynb
+    - file: skhep-tutorial/04-awkward.ipynb
+    - file: skhep-tutorial/05-histograms.ipynb
+    - file: skhep-tutorial/06-lorentz-vectors.ipynb
+    - file: skhep-tutorial/07-scaling-up.md
 
 site:
   template: book-theme

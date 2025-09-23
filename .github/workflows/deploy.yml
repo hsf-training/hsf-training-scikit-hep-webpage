@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build-book:
     name: Build Book
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     # Required for miniconda to activate conda
     defaults:
@@ -38,7 +38,7 @@ jobs:
       - name: Build the book
         run: |
           pip install --pre "jupyter-book==2.*"
-          jupyter-book build --execute --strict --html
+          jupyter book build --execute --strict --html --ci
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
