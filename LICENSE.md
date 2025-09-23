@@ -39,7 +39,7 @@ Notices:
 * No warranties are given. The license may not give you all of the
   permissions necessary for your intended use. For example, other
   rights such as publicity, privacy, or moral rights may limit how you
-  use the material
+  use the material.
 
 
 ### Software
