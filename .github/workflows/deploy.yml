@@ -35,6 +35,7 @@ jobs:
           use-mamba: true
           environment-file: environment.yml
           activate-environment: skhep-tutorial
+          conda-remove-defaults: true
       - name: Build the book
         run: |
           pip install --pre "jupyter-book==2.*"
