@@ -16,5 +16,5 @@ dependencies:
   - requests
   - aiohttp
   - hist
-  - zfit
+  - zfit>=0.27.0
   - fastjet
