@@ -33,7 +33,7 @@ Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
   › python3 -m pip install -r requirements.txt
 ```
 
-the installation is still progressing.
+the installation is still progressing. This will take around 5 minutes, so just be patient.
 
 Once you're done, you should only see an empty prompt like this:
 
@@ -43,18 +43,9 @@ Once you're done, you should only see an empty prompt like this:
 
 Wait for a few seconds to see that nothing else runs.
 
-Now look at your left side-panel. You should see a file named `notebook.ipynb`. Click on it.
-A new tab with the notebook opens.
-
-```{admonition} Note
-If the notebook does not show up after several minutes (and you only see the "blue progress bar" on top),
-you might want to try a different browser. There have been reports about this happening with
-Safari on OSX and with firefox private windows.
-```
-
-Try to execute the first line to see that everything is set up properly.
-
 You're ready to go 🎉
+
+You can view and run the notebooks from the VSCode interface. However, if you prefer to use JupyterLab, you can append `?editor=jupyter` to the URL in you browser so that it looks like this: `https://<your-codespace-id>.github.dev/?editor=jupyter`. Alternatively, you can go to [your codespaces](https://github.com/codespaces/), find the codespace you just created, click on the three dots on the right side, and select "Open in JupyterLab".
 
 ### Binder
 
@@ -69,10 +60,28 @@ Simply click the following button:
 
 ## After the tutorial
 
-If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) file (plus its [requirements.txt](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/requirements.txt) file) in [base](https://github.com/hsf-training/hsf-training-scikit-hep-webpage) of this repository as:
+If you want to install some of these packages on your own or your lab's computer, I recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) file in the [root](https://github.com/hsf-training/hsf-training-scikit-hep-webpage) of this repository as:
+
+```bash
+conda env create -f environment.yml
+```
+
+or you can install individual packages as needed, e.g.,
 
 ```bash
 conda install uproot awkward   # ... others?
 ```
 
-Alternatively, you can install all required packages locally with pip: Take a look at the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) and the [requirements.txt](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/requirements.txt) for a list (this includes all dependencies listed under the pip key and some of the dependencies listed above).
+Alternatively, you can install all required packages locally with pip with
+
+```bash
+pip install -r requirements.txt
+```
+
+or individually, e.g.,
+
+```bash
+pip install uproot awkward   # ... others?
+```
+
+Note that some packages (e.g. `xrootd`) will need to be built from source if installed with pip, so conda is the recommended installation method.
