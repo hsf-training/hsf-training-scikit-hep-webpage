@@ -8,6 +8,8 @@ You could use any of them in an ordinary GRID job (or other batch processor).
 
 However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](https://coffea-hep.readthedocs.io/en/latest/)) is building a *distributed* ecosystem that integrates Pythonic analysis with data analysis farms. This is too large of a subject to cover here, but check out the software and join the [Coffea user meetings](https://indico.cern.ch/category/11674/) if you're interested.
 
+![coffea](img/coffea_logo.png)
+
 # Scikit-HEP Resources
 
 - [scikit-hep.org](https://scikit-hep.org)
