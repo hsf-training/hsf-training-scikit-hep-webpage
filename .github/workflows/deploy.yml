@@ -41,7 +41,7 @@ jobs:
           pip install --pre "jupyter-book==2.*"
           jupyter book build --execute --strict --html --ci
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "_build/html"
 
