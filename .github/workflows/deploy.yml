@@ -27,7 +27,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v6
       - name: Get conda
-        uses: conda-incubator/setup-miniconda@v3
+        uses: conda-incubator/setup-miniconda@v4
         with:
           auto-update-conda: true
           python-version: "3.12"
