@@ -644,7 +644,7 @@
          y="160.18065"
          x="153.67581"
          id="tspan1107"
-         sodipodi:role="line">root_numpy</tspan></text>
+         sodipodi:role="line">Legacy   </tspan></text>
     <text
        id="text1115"
        y="147.03398"
@@ -655,7 +655,7 @@
          y="147.03398"
          x="153.67581"
          id="tspan1113"
-         sodipodi:role="line">root_pandas</tspan></text>
+         sodipodi:role="line">Legacy   </tspan></text>
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
