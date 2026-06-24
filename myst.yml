@@ -22,6 +22,7 @@ project:
     - file: skhep-tutorial/04-awkward.ipynb
     - file: skhep-tutorial/05-histograms.ipynb
     - file: skhep-tutorial/06-lorentz-vectors.ipynb
+    - file: skhep-tutorial/08-end-to-end-analysis.ipynb
     - file: skhep-tutorial/07-scaling-up.md
 
 site:
