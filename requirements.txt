@@ -1,5 +1,6 @@
 numpy
 scipy
+pandas
 uproot
 awkward
 awkward-pandas
@@ -9,9 +10,12 @@ xrootd
 fsspec-xrootd
 matplotlib
 particle
+hepunits
 requests
 aiohttp
+boost-histogram
 hist[plot]
+iminuit
 zfit>=0.27.0
 fastjet
 jupyterlab-myst

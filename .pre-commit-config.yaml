@@ -32,6 +32,16 @@ repos:
         files: '.*\.md'
 # === END CENTRALLY MAINTAINED FILE ===
 
+  # The centrally maintained codespell hook above only covers .md files, but
+  # most of the lesson prose lives in the notebooks.
+  - repo: https://github.com/codespell-project/codespell
+    rev: "v2.4.3"
+    hooks:
+      - id: codespell
+        name: codespell (notebooks)
+        args: ["-I", "codespell.txt"]
+        files: '.*\.ipynb'
+
   - repo: https://github.com/asottile/blacken-docs
     rev: 1.20.0
     hooks:
