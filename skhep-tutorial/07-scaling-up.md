@@ -14,7 +14,7 @@ However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](ht
 
 - [scikit-hep.org](https://scikit-hep.org)
 - Uproot [GitHub](https://github.com/scikit-hep/uproot5), [documentation](https://uproot.readthedocs.io)
-- Awkward Array [GitHub](https://github.com/scikit-hep/awkward-1.0), [documentation](https://awkward-array.org)
+- Awkward Array [GitHub](https://github.com/scikit-hep/awkward), [documentation](https://awkward-array.org)
 - boost-histogram [GitHub](https://github.com/scikit-hep/boost-histogram), [documentation](https://boost-histogram.readthedocs.io)
 - hist [GitHub](https://github.com/scikit-hep/hist), [documentation](https://hist.readthedocs.io)
 - Unified Histogram Interface [GitHub](https://github.com/scikit-hep/uhi), [documentation](https://uhi.readthedocs.io)

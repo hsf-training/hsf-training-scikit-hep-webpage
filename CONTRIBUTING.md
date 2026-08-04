@@ -27,7 +27,7 @@ This is a good way to introduce yourself
 and to meet some of our community members.
 
 1. If you do not have a [GitHub][github] account,
-    you can write the convenors an email.
+    you can write to the convenors on the [HSF training mailing list][email].
     However,
     we will be able to respond more quickly if you use one of the other methods described below.
 
@@ -54,7 +54,7 @@ If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
 or you may also look at all issues in [hsf-training][hsf-training-issues]
 
-There is also [a list](hsf-training-gfis) of all issues that are particularly easy and suitable
+There is also [a list][hsf-training-gfis] of all issues that are particularly easy and suitable
 for first contributions.
 
 Comments on issues and reviews of pull requests are just as welcome:
@@ -69,27 +69,27 @@ so fresh eyes are always welcome.
 If you choose to contribute via GitHub, you may want to look at
 [How to Contribute to an Open Source Project on GitHub][how-contribute].
 To manage changes, we follow [GitHub flow][github-flow].
-Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
+Each lesson has maintainers who review issues and pull requests or encourage others to do so.
 The maintainers are community volunteers and have final say over what gets merged into the lesson.
 To use the web interface for contributing to a lesson:
 
 1. Fork the originating repository to your GitHub profile.
-2. Within your version of the forked repository, move to the `gh-pages` branch and
+2. Within your version of the forked repository, move to the `main` branch and
 create a new branch for each significant change being made.
 3. Navigate to the file(s) you wish to change within the new branches and make revisions as required.
 4. Commit all changed files within the appropriate branches.
 5. Create individual pull requests from each of your changed branches
-to the `gh-pages` branch within the originating repository.
+to the `main` branch within the originating repository.
 6. If you receive feedback, make changes using your issue-specific branches of the forked
 repository and the pull requests will update automatically.
 7. Repeat as needed until all feedback has been addressed.
 
-When starting work, please make sure your clone of the originating `gh-pages` branch is up-to-date
+When starting work, please make sure your clone of the originating `main` branch is up-to-date
 before creating your own revision-specific branch(es) from there.
 Additionally, please only work from your newly-created branch(es) and *not*
-your clone of the originating `gh-pages` branch.
-Lastly, published copies of all the lessons are available in the `gh-pages` branch of the originating
-repository for reference while revising.
+your clone of the originating `main` branch.
+The site is built and published from `main` automatically by the
+[deploy workflow](.github/workflows/deploy.yml); there is no branch to edit the published copy directly.
 
 # Rendering the site locally
 
@@ -115,8 +115,8 @@ jupyter book build --execute --strict --html
 More information on how to contribute or how to contact us: [HSF training home][hsf-training]
 
 [hsf-training-issues]: https://github.com/issues?q=user%3Ahsf-training+is%3Aopen
-[hsf-training]: https://hepsoftwarefoundation.org/workinggroups/training.html
-[email]: mailto:https://groups.google.com/forum/#!forum/hsf-training-wg
+[hsf-training]: https://hepsoftwarefoundation.org/activities/training.html
+[email]: https://groups.google.com/g/hsf-training-wg
 [github]: https://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join

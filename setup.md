@@ -2,7 +2,7 @@
 
 ## For the tutorial
 
-This tutorial uses a sampler of [Scikit-HEP project](https://scikit-hep.org/) packages (Uproot, Awkward Array, hist, Vector, zfit, Particle, fastjet), which are all components that you might or might not use in your analysis, as well as Python 3, NumPy, and a smattering of other mainstream libraries (Pandas, Matplotlib, JupyterLab, Numba).
+This tutorial uses a sampler of [Scikit-HEP project](https://scikit-hep.org/) packages (Uproot, Awkward Array, hist, Vector, zfit, iminuit, Particle, fastjet), which are all components that you might or might not use in your analysis, as well as Python 3, NumPy, and a smattering of other mainstream libraries (Pandas, Matplotlib, JupyterLab).
 
 Rather than asking you to install them all, we provide two different ways to run everything in your browser: GitHub Codespaces and Binder.
 We recommend that you use GitHub Codespaces (see instructions below). If this is not an option for you, you can use Binder, though be aware that the resources might be very limited.
@@ -28,8 +28,7 @@ After starting the github codespace, take a look at the lines in the "Terminal" 
 ```
 Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
 ✔ Finishing up...
-✔ Running updateContentCommand...
-⠦ Running postCreateCommand...
+⠦ Running updateContentCommand...
   › python3 -m pip install -r requirements.txt
 ```
 
@@ -45,7 +44,7 @@ Wait for a few seconds to see that nothing else runs.
 
 You're ready to go 🎉
 
-You can view and run the notebooks from the VSCode interface. However, if you prefer to use JupyterLab, you can append `?editor=jupyter` to the URL in you browser so that it looks like this: `https://<your-codespace-id>.github.dev/?editor=jupyter`. Alternatively, you can go to [your codespaces](https://github.com/codespaces/), find the codespace you just created, click on the three dots on the right side, and select "Open in JupyterLab".
+You can view and run the notebooks from the VSCode interface. However, if you prefer to use JupyterLab, you can append `?editor=jupyter` to the URL in your browser so that it looks like this: `https://<your-codespace-id>.github.dev/?editor=jupyter`. Alternatively, you can go to [your codespaces](https://github.com/codespaces/), find the codespace you just created, click on the three dots on the right side, and select "Open in JupyterLab".
 
 ### Binder
 
@@ -84,4 +83,4 @@ or individually, e.g.,
 pip install uproot awkward   # ... others?
 ```
 
-Note that some packages (e.g. `xrootd`) will need to be built from source if installed with pip, so conda is the recommended installation method.
+Both methods work on Linux and macOS. Note that `xrootd`, which is needed to read files over `root://` URLs, is not available for Windows; on Windows, install into [WSL](https://learn.microsoft.com/en-us/windows/wsl/install), or use GitHub Codespaces or Binder as described above.
