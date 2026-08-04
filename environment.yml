@@ -4,6 +4,7 @@ channels:
 dependencies:
   - numpy
   - scipy
+  - pandas
   - uproot
   - awkward
   - awkward-pandas
@@ -13,9 +14,12 @@ dependencies:
   - fsspec-xrootd
   - matplotlib
   - particle
+  - hepunits
   - requests
   - aiohttp
+  - boost-histogram
   - hist
+  - iminuit
   - zfit>=0.27.0
   - fastjet
   - jupyterlab-myst
