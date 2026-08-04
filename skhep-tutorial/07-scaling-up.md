@@ -1,7 +1,5 @@
 # Tools for scaling up
 
-# Scaling up
-
 The tools described in these lessons are intended to be used *within* a script that is scaled up for large datasets.
 
 You could use any of them in an ordinary GRID job (or other batch processor).
