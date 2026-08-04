@@ -6,7 +6,7 @@ awkward
 awkward-pandas
 scikit-hep-testdata
 vector
-xrootd
+xrootd; platform_system != "Windows"
 fsspec-xrootd
 matplotlib
 particle

@@ -83,4 +83,8 @@ or individually, e.g.,
 pip install uproot awkward   # ... others?
 ```
 
-Both methods work on Linux and macOS. Note that `xrootd`, which is needed to read files over `root://` URLs, is not available for Windows; on Windows, install into [WSL](https://learn.microsoft.com/en-us/windows/wsl/install), or use GitHub Codespaces or Binder as described above.
+### A note on Windows
+
+Every package used in this tutorial is available for Windows except `xrootd`, which is what lets Uproot read files over `root://` URLs. You can still follow the whole tutorial: the lessons that open a remote file over `root://` also give an `https://` URL for the same file, so uncomment that line instead.
+
+`pip install -r requirements.txt` skips `xrootd` automatically on Windows. The conda `environment.yml` above does not, because conda environment files cannot express per-platform dependencies, so on Windows either use pip, or install into [WSL](https://learn.microsoft.com/en-us/windows/wsl/install), or use GitHub Codespaces or Binder as described above.
