@@ -1,17 +1,21 @@
 numpy
 scipy
+pandas
 uproot
 awkward
 awkward-pandas
 scikit-hep-testdata
 vector
-xrootd
+xrootd; platform_system != "Windows"
 fsspec-xrootd
 matplotlib
 particle
+hepunits
 requests
 aiohttp
+boost-histogram
 hist[plot]
+iminuit
 zfit>=0.27.0
 fastjet
 jupyterlab-myst
