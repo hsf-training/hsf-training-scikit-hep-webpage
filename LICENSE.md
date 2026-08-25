@@ -71,5 +71,5 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[mit-license]: https://opensource.org/licenses/mit-license.html
+[mit-license]: https://opensource.org/license/mit
 [osi]: https://opensource.org
