@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this lesson, please cite it as below."
+type: software
+title: "Scikit-HEP Tutorial"
+abstract: "A training lesson on Scikit-HEP, a collection of packages for particle physics analysis in Python. Part of the HSF training curriculum."
+authors:
+  - family-names: "Pivarski"
+    given-names: "Jim"
+    orcid: "https://orcid.org/0000-0002-6649-343X"
+  - family-names: "Rios Tascon"
+    given-names: "Andres"
+    orcid: "https://orcid.org/0000-0003-3282-2634"
+  - family-names: "Deconinck"
+    given-names: "Wouter"
+    orcid: "https://orcid.org/0000-0003-4033-6716"
+  - family-names: "Lieret"
+    given-names: "Kilian"
+    orcid: "https://orcid.org/0000-0003-2792-7511"
+  - family-names: "Schreiner"
+    given-names: "Henry"
+    orcid: "https://orcid.org/0000-0002-7833-783X"
+doi: "10.5281/zenodo.22086460"
+repository-code: "https://github.com/hsf-training/hsf-training-scikit-hep-webpage"
+repository-artifact: "https://doi.org/10.5281/zenodo.22086460"
+url: "https://hsf-training.github.io/hsf-training-scikit-hep-webpage/"
+keywords:
+  - scikit-hep
+  - python
+  - training
+  - tutorial
+  - high-energy physics
+  - particle physics
+  - uproot
+  - awkward-array
+  - histograms
+  - columnar analysis
+license: "CC-BY-4.0"

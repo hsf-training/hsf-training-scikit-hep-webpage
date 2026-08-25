@@ -2,6 +2,7 @@
 
 [![Build and Deploy Book](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/actions/workflows/deploy.yml/badge.svg)](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/actions/workflows/deploy.yml)
 [![HSF Training Center](https://img.shields.io/badge/HSF%20Training%20Center-browse-ff69b4)](https://hepsoftwarefoundation.org/training/curriculum.html)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22086460.svg)](https://doi.org/10.5281/zenodo.22086460)
 
 This is a tutorial on [Scikit-HEP](https://scikit-hep.org), a collection of packages for particle physics analysis in Python.
 
@@ -30,7 +31,7 @@ A list of contributors to the lesson can be found in [AUTHORS](https://github.co
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/CITATION)
+To cite this lesson, please consult with [CITATION.cff](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/CITATION.cff), or use the "Cite this repository" button in the sidebar.
 
 [jpivarski]: https://github.com/jpivarski/
 [ariostas]: https://github.com/ariostas/
