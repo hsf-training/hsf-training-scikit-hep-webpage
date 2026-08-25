@@ -59,7 +59,7 @@ Simply click the following button:
 
 ## After the tutorial
 
-If you want to install some of these packages on your own or your lab's computer, we recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction.html#how-can-i-install-packages-from-conda-forge)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) file in the [root](https://github.com/hsf-training/hsf-training-scikit-hep-webpage) of this repository as:
+If you want to install some of these packages on your own or your lab's computer, we recommend [Miniforge](https://github.com/conda-forge/miniforge) (or Anaconda/Miniconda with the [conda-forge channel](https://conda-forge.org/docs/user/introduction/)). This method also provides a way to [install ROOT in the same environment](https://github.com/conda-forge/root-feedstock#readme). To setup the environment use the [environment.yml](https://github.com/hsf-training/hsf-training-scikit-hep-webpage/blob/main/environment.yml) file in the [root](https://github.com/hsf-training/hsf-training-scikit-hep-webpage) of this repository as:
 
 ```bash
 conda env create -f environment.yml

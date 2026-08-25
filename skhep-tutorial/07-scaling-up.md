@@ -20,14 +20,14 @@ However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](ht
 - iminuit [GitHub](https://github.com/scikit-hep/iminuit), [documentation](https://iminuit.readthedocs.io)
 - zfit [GitHub](https://github.com/zfit/zfit), [documentation](https://zfit.readthedocs.io)
 - Vector [GitHub](https://github.com/scikit-hep/vector), [documentation](https://vector.readthedocs.io)
-- Particle [GitHub](https://github.com/scikit-hep/particle), [documentation](https://github.com/scikit-hep/particle/blob/master/notebooks/ParticleDemo.ipynb)
+- Particle [GitHub](https://github.com/scikit-hep/particle), [documentation](https://github.com/scikit-hep/particle/blob/main/notebooks/ParticleDemo.ipynb)
 - hepunits [GitHub](https://github.com/scikit-hep/hepunits)
 - fastjet [GitHub](https://github.com/scikit-hep/fastjet), [documentation](https://fastjet.readthedocs.io)
 - pyhf [GitHub](https://github.com/scikit-hep/pyhf), [documentation](https://pyhf.readthedocs.io)
 - hepstats [GitHub](https://github.com/scikit-hep/hepstats), [documentation](https://scikit-hep.org/hepstats)
 - cabinetry [GitHub](https://github.com/scikit-hep/cabinetry), [documentation](https://iris-hep.org/projects/cabinetry.html)
 - histoprint [GitHub](https://github.com/scikit-hep/histoprint)
-- decaylanguage [GitHub](https://github.com/scikit-hep/decaylanguage), [documentation](https://github.com/scikit-hep/decaylanguage/blob/master/notebooks/DecayLanguageDemo.ipynb)
+- decaylanguage [GitHub](https://github.com/scikit-hep/decaylanguage), [documentation](https://github.com/scikit-hep/decaylanguage/blob/main/notebooks/DecayLanguageDemo.ipynb)
 - GooFit [GitHub](https://github.com/GooFit/GooFit), [documentation](https://goofit.github.io/)
 - pyhepmc [GitHub](https://github.com/scikit-hep/pyhepmc)
 - pylhe [GitHub](https://github.com/scikit-hep/pylhe)
@@ -35,4 +35,3 @@ However, the [Coffea project](https://github.com/CoffeaTeam) ([documentation](ht
 and finally
 
 - cookie [GitHub](https://github.com/scientific-python/cookie), [documentation](https://learn.scientific-python.org/development), a template for making your own...
-

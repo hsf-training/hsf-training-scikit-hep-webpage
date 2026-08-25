@@ -11,10 +11,10 @@ repos:
       - id: check-symlinks
       - id: debug-statements
       - id: end-of-file-fixer
-        files: ^(_episodes|README.md|setup.md)
+        exclude: ^\.github/(config|stale)\.yml$
       - id: mixed-line-ending
       - id: trailing-whitespace
-        files: ^(_episodes|code|README.md|setup.md)
+        exclude: ^\.github/(config|stale)\.yml$
 
   - repo: https://github.com/codespell-project/codespell
     rev: "v2.4.3"
