@@ -1,0 +1,8 @@
+# Data files read by code cells in the notebooks, not links. lychee reads the
+# notebook JSON as text and mangles the escaped quotes at the end of these URLs.
+# The files themselves are fetched by the executing build (--execute).
+^https://root\.cern/files/rootbench/
+^https://zenodo\.org/records/21777191/files/
+^https://opendata\.cern\.ch/eos/opendata/atlas/rucio/opendata
+# GitHub sign-up page (CONTRIBUTING.md): returns 403 to bots, works in a browser.
+^https://github\.com/join$

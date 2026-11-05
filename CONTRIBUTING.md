@@ -114,7 +114,7 @@ jupyter book build --execute --strict --html
 
 More information on how to contribute or how to contact us: [HSF training home][hsf-training]
 
-[hsf-training-issues]: https://github.com/issues?q=user%3Ahsf-training+is%3Aopen
+[hsf-training-issues]: https://github.com/search?q=org%3Ahsf-training+is%3Aissue+is%3Aopen&type=issues
 [hsf-training]: https://hepsoftwarefoundation.org/activities/training.html
 [email]: https://groups.google.com/g/hsf-training-wg
 [github]: https://github.com
@@ -122,4 +122,4 @@ More information on how to contribute or how to contact us: [HSF training home][
 [github-join]: https://github.com/join
 [how-contribute]: https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project
 [issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues
-[hsf-training-gfis]: https://github.com/issues?q=is%3Aissue+is%3Aopen+archived%3Afalse+sort%3Aupdated-desc+label%3A%22good+first+issue%22+org%3Ahsf-training
+[hsf-training-gfis]: https://github.com/search?q=org%3Ahsf-training+label%3A%22good+first+issue%22+is%3Aissue+is%3Aopen+archived%3Afalse&type=issues
